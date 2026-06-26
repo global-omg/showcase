@@ -33,6 +33,17 @@
   .c.reskin .go{display:inline-block;border-radius:9px;padding:7px 16px}
   .c.gameplay .badge{background:var(--blue)}
   .c.gameplay .go{display:inline-block;border-radius:9px;padding:7px 16px;background:var(--blue);color:#fff}
+  .feature{display:flex;gap:0;margin-bottom:26px;background:var(--card);border:1px solid #f0dcc6;border-radius:22px;overflow:hidden;text-decoration:none;color:inherit;box-shadow:0 6px 24px rgba(232,137,63,.10);transition:transform .16s,box-shadow .16s}
+  .feature:hover{transform:translateY(-4px);box-shadow:0 14px 36px rgba(232,137,63,.18)}
+  .feature .fpic{flex:0 0 220px;background:#fff3e8 center/cover no-repeat;border-right:1px solid #f0dcc6}
+  .feature .fpic img{width:100%;height:100%;object-fit:cover;display:block}
+  .feature .fmeta{flex:1;padding:26px 28px;display:flex;flex-direction:column;justify-content:center}
+  .feature .badge{background:#e8893f;color:#fff}
+  .feature h2{font-family:Georgia,serif;font-size:27px;margin:8px 0 7px}
+  .feature .count{font-size:13px;font-weight:700;color:#c0762f;margin-bottom:9px}
+  .feature p{margin:0;font-size:14.5px;color:#4a5160;max-width:600px}
+  .feature .go{margin-top:16px;display:inline-block;border-radius:9px;padding:8px 18px;background:#e8893f;color:#fff;font-weight:700;font-size:14px;width:max-content}
+  @media(max-width:620px){.feature{flex-direction:column}.feature .fpic{flex:none;height:200px;border-right:none;border-bottom:1px solid #f0dcc6}}
   footer{text-align:center;color:var(--muted);font-size:12px;padding:20px 24px 50px}
 </style>
 </head>
@@ -43,6 +54,18 @@
   <p>Hai hướng phát triển cho Arrow Puzzle — chọn một trang để xem chi tiết ý tưởng, ảnh mock và ghi chú triển khai.</p>
 </header>
 <div class="wrap">
+
+  <a class="feature" href="cat-rescue.html">
+    <div class="fpic"><img src="images/cat-rescue/hero.png" alt="" onerror="this.style.display='none'"></div>
+    <div class="fmeta">
+      <span class="badge">★ CONCEPT ĐỀ XUẤT</span>
+      <h2>🐱 Giải Cứu Mèo</h2>
+      <div class="count">Mở đường thoát cho mèo · giới hạn nước đi · không cần gỡ hết</div>
+      <p>Bạn mèo bị nhốt giữa mê cung mũi tên — trượt mũi tên để mở một lối cho mèo chạy ra. Đổi điều kiện thắng (reachability) + thêm move-limit, giữ nguyên thao tác tap. Kèm brief & ghi chú triển khai cho dev.</p>
+      <span class="go">Xem ý tưởng đầy đủ →</span>
+    </div>
+  </a>
+
   <div class="cards">
 
     <a class="c reskin" href="reskin.html">

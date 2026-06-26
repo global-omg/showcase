@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arrow Puzzle — Giải Cứu Mèo (Cat Rescue)</title>
+<style>
+  :root{
+    --ink:#1d2330; --muted:#7b8395; --line:#e7e9f0; --bg:#f6f7fb; --card:#ffffff;
+    --accent:#3a54d6; --accentSoft:#eef1ff; --cat:#e8893f; --catSoft:#fff1e4; --ok:#2e9e6b;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+  nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);padding:11px 22px;display:flex;align-items:center;gap:14px}
+  nav a{color:var(--accent);text-decoration:none;font-weight:700;font-size:14px}
+  nav span{color:var(--muted);font-size:13px}
+  .hero{background:linear-gradient(180deg,#fff3e8,#f6f7fb);padding:46px 24px 30px}
+  .hero .in{max-width:1000px;margin:0 auto;display:flex;gap:34px;align-items:center;flex-wrap:wrap}
+  .hero .pic{flex:0 0 230px;border-radius:22px;overflow:hidden;border:1px solid var(--line);box-shadow:0 10px 30px rgba(40,50,80,.12);background:#eef0f6}
+  .hero .pic img{width:100%;display:block}
+  .hero .txt{flex:1;min-width:280px}
+  .pill{display:inline-block;background:var(--cat);color:#fff;font-size:12px;font-weight:800;letter-spacing:.05em;border-radius:20px;padding:4px 13px;text-transform:uppercase}
+  .hero h1{font-family:Georgia,serif;font-size:38px;margin:12px 0 6px;font-weight:700}
+  .hero .sub{font-size:16px;color:#4a5160;max-width:560px}
+  .hero .tagline{margin-top:14px;font-size:15px;font-weight:600;color:var(--cat);background:var(--catSoft);border-left:4px solid var(--cat);border-radius:0 10px 10px 0;padding:11px 16px}
+  .wrap{max-width:1000px;margin:0 auto;padding:18px 22px 90px}
+  section{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px 26px;margin-top:22px;box-shadow:0 4px 18px rgba(40,50,80,.04)}
+  section h2{font-family:Georgia,serif;font-size:23px;margin:0 0 4px}
+  section h2 .ico{margin-right:8px}
+  section .lead{color:var(--muted);font-size:14px;margin:0 0 16px}
+  .loop{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+  @media(max-width:720px){.loop{grid-template-columns:1fr}.hero .in{flex-direction:column}}
+  .step{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fbfcff;display:flex;flex-direction:column}
+  .step .frame{aspect-ratio:9/16;background:#eef0f6 center/cover no-repeat;overflow:hidden}
+  .step .frame img{width:100%;height:100%;object-fit:cover;display:block}
+  .step .cap{padding:12px 14px}
+  .step .cap b{display:block;font-size:14.5px;margin-bottom:3px}
+  .step .cap b .n{display:inline-block;width:22px;height:22px;line-height:22px;text-align:center;border-radius:50%;background:var(--accent);color:#fff;font-size:12px;margin-right:7px}
+  .step .cap p{margin:0;font-size:13px;color:#4a5160}
+  ul.rules{margin:0;padding:0;list-style:none}
+  ul.rules li{position:relative;padding:9px 0 9px 30px;border-bottom:1px dashed var(--line);font-size:14.5px}
+  ul.rules li:last-child{border-bottom:none}
+  ul.rules li:before{content:"";position:absolute;left:6px;top:16px;width:9px;height:9px;border-radius:50%;background:var(--accent)}
+  ul.rules li.win:before{background:var(--ok)}
+  ul.rules li b{color:var(--ink)}
+  .twocol{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  @media(max-width:720px){.twocol{grid-template-columns:1fr}}
+  .box{border-radius:12px;padding:14px 16px;font-size:14px}
+  .box.old{background:#f4f5f8;border:1px solid var(--line)}
+  .box.new{background:var(--catSoft);border:1px solid #f3d9bf}
+  .box h4{margin:0 0 8px;font-size:13px;text-transform:uppercase;letter-spacing:.05em}
+  .box.old h4{color:var(--muted)}
+  .box.new h4{color:var(--cat)}
+  .box ul{margin:0;padding-left:18px}
+  .box li{margin:5px 0}
+  code{background:#eef1ee;padding:1px 6px;border-radius:5px;font-size:12.5px;color:#3f4b6b;font-family:ui-monospace,Menlo,monospace}
+  .impl{font-size:14px}
+  .impl ol{padding-left:20px;margin:0}
+  .impl ol li{margin:9px 0}
+  .why{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:720px){.why{grid-template-columns:1fr}}
+  .why .w{background:#fbfcff;border:1px solid var(--line);border-radius:12px;padding:13px 15px}
+  .why .w b{display:block;font-size:14px;margin-bottom:3px;color:var(--accent)}
+  .why .w p{margin:0;font-size:13px;color:#4a5160}
+  .tagchips{margin-top:6px}
+  .tagchips span{display:inline-block;background:var(--accentSoft);color:var(--accent);border-radius:20px;padding:3px 11px;font-size:12px;font-weight:700;margin:3px 5px 3px 0}
+  footer{text-align:center;color:var(--muted);font-size:12px;padding:30px}
+  .note{font-size:12.5px;color:var(--muted);margin-top:10px}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html">← Showcase</a>
+  <span>Ý tưởng đặc biệt · Giải cứu mèo</span>
+</nav>
+
+<div class="hero">
+  <div class="in">
+    <div class="pic"><img src="images/cat-rescue/hero.png" alt="Cat Rescue hero"></div>
+    <div class="txt">
+      <span class="pill">★ Concept đề xuất</span>
+      <h1>Giải Cứu Mèo</h1>
+      <div class="sub">Bạn mèo bị nhốt giữa một mê cung mũi tên. Người chơi trượt các mũi tên để <b>mở một lối thoát</b> cho mèo chạy ra — <b>không cần gỡ hết</b> mũi tên, chỉ cần thông được một đường. Mỗi màn có <b>số nước đi giới hạn</b>.</div>
+      <div class="tagline">🐱 “Chỉ cần mở đường — bạn mèo tự khắc tìm lối ra.”</div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <section>
+    <h2><span class="ico">🔄</span>Vòng lặp cốt lõi</h2>
+    <p class="lead">Một màn diễn ra qua 3 nhịp — minh hoạ bằng ảnh mock dưới đây.</p>
+    <div class="loop">
+      <div class="step">
+        <div class="frame"><img src="images/cat-rescue/trapped.png" alt="Trapped"></div>
+        <div class="cap"><b><span class="n">1</span>Bị nhốt</b><p>Mèo ngồi giữa board, bị các mũi tên vây kín như song sắt. Đồng hồ nước đi bắt đầu đếm (vd “Moves 12”).</p></div>
+      </div>
+      <div class="step">
+        <div class="frame"><img src="images/cat-rescue/open-path.png" alt="Open path"></div>
+        <div class="cap"><b><span class="n">2</span>Mở đường</b><p>Mỗi lần tap, một mũi tên trượt ra khỏi board (luật gốc). Người chơi gỡ dần để tạo một hành lang trống từ mèo ra tới mép.</p></div>
+      </div>
+      <div class="step">
+        <div class="frame"><img src="images/cat-rescue/freed.png" alt="Freed"></div>
+        <div class="cap"><b><span class="n">3</span>Thoát ra</b><p>Ngay khi có một đường thông tới mép, mèo tự chạy ra → thắng. Không cần dọn sạch các mũi tên còn lại.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="ico">📜</span>Luật chơi</h2>
+    <ul class="rules">
+      <li>Mỗi màn có <b>một bạn mèo</b> đứng ở một ô giữa board, bị các mũi tên bao quanh.</li>
+      <li>Tap một mũi tên → nó <b>trượt head-first ra mép</b> nếu tia thẳng từ đầu nó tới mép không vướng mũi tên khác (giữ <b>nguyên luật trượt gốc</b>).</li>
+      <li class="win"><b>THẮNG = mở được MỘT đường thông</b> từ ô mèo tới bất kỳ mép board nào (chuỗi ô trống liền nhau). <b>Không cần</b> gỡ hết mũi tên.</li>
+      <li>Mỗi màn có <b>giới hạn số nước đi</b> (moves). Mỗi lần trượt 1 mũi tên = 1 nước.</li>
+      <li>Hết nước mà chưa mở được đường cho mèo → <b>thua</b> (chơi lại / xem quảng cáo +nước, tuỳ meta).</li>
+      <li>Xếp hạng <b>1–3 sao</b> theo số nước còn dư so với mốc “par” của màn.</li>
+    </ul>
+    <p class="note">“Đường thông” = mèo có thể đi qua các ô trống (không còn mũi tên) để chạm mép. Có thể cho đi 4-hướng (đơn giản) hoặc chỉ đường thẳng (khó hơn) — chốt khi prototype.</p>
+  </section>
+
+  <section>
+    <h2><span class="ico">🎯</span>Khác gì core hiện tại?</h2>
+    <p class="lead">Chỉ đổi <b>điều kiện thắng</b> và thêm <b>ngân sách nước đi</b> — toàn bộ thao tác tap & luật trượt giữ nguyên.</p>
+    <div class="twocol">
+      <div class="box old">
+        <h4>Core gốc</h4>
+        <ul>
+          <li>Thắng = <b>dọn sạch TẤT CẢ</b> mũi tên.</li>
+          <li>Không giới hạn nước đi.</li>
+          <li>Không có nhân vật / mục tiêu cảm xúc.</li>
+        </ul>
+      </div>
+      <div class="box new">
+        <h4>Giải cứu mèo</h4>
+        <ul>
+          <li>Thắng = <b>mở 1 đường</b> cho mèo ra mép (reachability).</li>
+          <li><b>Giới hạn nước đi</b> + xếp sao theo hiệu quả.</li>
+          <li>Có <b>mèo</b> làm mục tiêu — hook cảm xúc & mascot.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tagchips">
+      <span>Đổi mục tiêu (Nhóm C)</span><span>+ Mascot layer</span><span>Luật trượt: giữ nguyên</span><span>Thao tác tap: giữ nguyên</span>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="ico">⚙️</span>Triển khai sơ bộ (cho dev)</h2>
+    <div class="impl">
+      <ol>
+        <li><b>Thêm Cat entity</b>: một ô <code>catCell</code> trên board (không phải mũi tên). Render sprite mèo, có state idle / lo lắng / chạy ra / vui.</li>
+        <li><b>Tái dùng</b> hoàn toàn <code>ArrowView</code> slide + <code>GameState.CanExit</code> + board model hiện có. Không đụng luật trượt.</li>
+        <li><b>Win-check sau mỗi nước</b>: BFS/flood-fill từ <code>catCell</code> qua các ô TRỐNG (ô không bị mũi tên chiếm); nếu chạm bất kỳ ô mép → có đường → <b>thắng</b>. Trigger animation mèo đi theo path đó ra ngoài.</li>
+        <li><b>Move budget</b>: <code>movesLeft</code> khởi tạo theo data màn; mỗi tap hợp lệ <code>--</code>; <code>== 0</code> &amp; chưa thắng → <code>OnFail</code> (tái dùng fail popup sẵn có).</li>
+        <li><b>Rating</b>: 3 sao nếu <code>movesLeft &gt;= par3</code>, 2 sao <code>&gt;= par2</code>, còn lại 1 sao. Lưu vào progress.</li>
+        <li><b>Level data</b>: format hiện tại + thêm <code>catCell</code> và <code>moveLimit</code>. Có thể auto-sinh từ pool level cũ: đặt mèo vào vùng kẹt nhất, set moveLimit = số nước tối thiểu + đệm.</li>
+      </ol>
+    </div>
+    <p class="note">Ước tính: tái dùng ~80% code core. Phần mới chủ yếu = Cat entity + hàm reachability + bộ đếm nước + animation mèo. Không cần engine/luật mới.</p>
+  </section>
+
+  <section>
+    <h2><span class="ico">💡</span>Vì sao ý tưởng này mạnh</h2>
+    <div class="why">
+      <div class="w"><b>Hook cảm xúc</b><p>“Cứu bạn mèo” tạo động lực mạnh hơn “dọn board”. Mèo = mascot, gắn với branding game gốc.</p></div>
+      <div class="w"><b>Dễ hơn nhưng vẫn sâu</b><p>“Đủ tốt là thắng” (không cần gỡ hết) giảm tải nhận thức → thân thiện casual; nhưng tối ưu nước đi vẫn có chiều sâu cho hardcore.</p></div>
+      <div class="w"><b>Tension &amp; replay</b><p>Giới hạn nước đi tạo căng thẳng mỗi nước, và xếp sao theo hiệu quả khiến người chơi muốn chơi lại để 3 sao.</p></div>
+      <div class="w"><b>Tái dùng cao</b><p>Giữ nguyên luật trượt nên dùng lại được kho 3.747 level cũ (chỉ cần đặt mèo + set move limit), ra nội dung nhanh.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="ico">🧩</span>Level design &amp; mở rộng</h2>
+    <ul class="rules">
+      <li><b>Độ khó</b> điều bởi: số lớp mũi tên vây quanh mèo, mức khoá lẫn nhau giữa các mũi tên, và khoảng cách từ mèo tới mép gần nhất.</li>
+      <li><b>Kết hợp cơ chế Nhóm A</b>: mũi tên băng / bị xích quanh mèo làm “ổ khoá” buộc người chơi giải đúng thứ tự.</li>
+      <li><b>Mở rộng tương lai</b> (không bắt buộc): nhiều mèo / mèo con đi theo, ô vật cản, theme “phòng giam”, mèo cần nhặt chìa khoá trước khi ra.</li>
+    </ul>
+  </section>
+
+  <p class="note" style="text-align:center">Ảnh mock dựng bằng OpenArt (Nano Banana 2, img2image từ screenshot Level thật) — minh hoạ ý tưởng, chưa phải build. Đây là <b>concept sơ bộ</b> để team thảo luận.</p>
+
+</div>
+<footer>github.com/global-omg/showcase · Arrow Puzzle — Cat Rescue concept</footer>
+</body>
+</html>

@@ -87,8 +87,8 @@
     <div class="txt">
       <span class="pill">★ Concept đề xuất</span>
       <h1>PvP Arena — Đấu Mũi Tên</h1>
-      <div class="sub">Hai người chơi đối đầu trên cùng một màn: ai <b>gỡ được nhiều mũi tên hơn</b> trong thời gian giới hạn sẽ thắng. Người thắng nhận <b>vàng</b> và <b>cúp (trophy)</b> để <b>leo hạng</b> qua các giải đấu.</div>
-      <div class="tagline">⚔️ “Cùng một bàn cờ — ai tay nhanh & tính giỏi hơn sẽ thắng.”</div>
+      <div class="sub">Hai người chơi cùng gỡ mũi tên trên <b>MỘT bàn chung duy nhất</b>: ai <b>gỡ được nhiều mũi tên hơn</b> (tay nhanh hơn) sẽ thắng. Người thắng nhận <b>vàng</b> và <b>cúp (trophy)</b> để <b>leo hạng</b> qua các giải đấu.</div>
+      <div class="tagline">⚔️ “Chung một bàn — chậm tay là mất phần. Ai gỡ nhiều mũi tên hơn sẽ thắng.”</div>
     </div>
   </div>
 </div>
@@ -105,7 +105,7 @@
       </div>
       <div class="step">
         <div class="frame"><img src="images/pvp/duel.png" alt="Duel"></div>
-        <div class="cap"><b><span class="n">2</span>Đấu tốc độ</b><p>Cả hai nhận <b>cùng một bàn</b>. Bộ đếm giờ chạy; bạn thấy tiến độ đối thủ ở trên. Tap để gỡ mũi tên thật nhanh.</p></div>
+        <div class="cap"><b><span class="n">2</span>Tranh trên 1 bàn</b><p>Cả hai cùng gỡ trên <b>MỘT bàn chung</b>. Mũi tên ai tap trước là của người đó — thấy đối thủ giật mất mũi tên ngay trên bàn. Bộ đếm giờ chạy.</p></div>
       </div>
       <div class="step">
         <div class="frame"><img src="images/pvp/result.png" alt="Result"></div>
@@ -117,12 +117,12 @@
   <section>
     <h2><span class="ico">📜</span>Thể thức &amp; luật</h2>
     <ul class="rules">
-      <li><b>1 đấu 1.</b> Hai người chơi nhận <b>cùng một màn</b> (giống hệt, để công bằng) trên màn hình của mỗi người.</li>
+      <li><b>1 đấu 1 trên MỘT bàn chung.</b> Cả hai cùng nhìn &amp; cùng thao tác trên <b>một bàn mũi tên duy nhất</b> (shared board), không phải 2 bản sao.</li>
       <li>Thao tác y nguyên core: tap → mũi tên trượt ra mép nếu đường thoát trống. <b>Giữ nguyên luật trượt.</b></li>
-      <li><b>Đếm giờ</b> (vd 60 giây). Trong thời gian đó, gỡ được càng nhiều mũi tên càng tốt.</li>
-      <li class="win"><b>THẮNG = gỡ được NHIỀU mũi tên hơn</b> khi hết giờ. Nếu ai <b>gỡ sạch bàn trước</b> → thắng ngay lập tức.</li>
-      <li>Hoà (bằng số mũi tên) → người gỡ sạch/nhiều hơn ở mốc thời gian sớm hơn thắng, hoặc chia nhỏ thưởng.</li>
-      <li>Thấy <b>tiến độ realtime của đối thủ</b> (thanh “Rival 9/20”) để tạo áp lực đua.</li>
+      <li><b>Tranh trực tiếp:</b> mũi tên ai <b>tap hợp lệ trước</b> thì được gỡ &amp; tính điểm cho người đó; người kia mất phần đó. Bàn cạn dần cho cả hai.</li>
+      <li><b>Đếm giờ</b> (vd 60 giây) hoặc tới khi bàn sạch. Mỗi mũi tên bạn gỡ = +1 điểm cho bạn.</li>
+      <li class="win"><b>THẮNG = gỡ được NHIỀU mũi tên hơn</b> đối thủ khi hết giờ / khi bàn sạch.</li>
+      <li>Vì chung bàn nên bạn <b>thấy đối thủ giật mũi tên realtime</b> ngay trên bàn của mình → tạo áp lực &amp; tranh chấp liên tục.</li>
     </ul>
     <p class="note">Biến thể có thể thử: Best-of-3 màn ngắn; hoặc “first to clear” thuần tốc độ; hoặc tính điểm = mũi tên gỡ + bonus combo liên tiếp.</p>
   </section>
@@ -144,7 +144,7 @@
 
   <section>
     <h2><span class="ico">🎯</span>Khác gì core hiện tại?</h2>
-    <p class="lead">Luật trượt &amp; thao tác tap <b>giữ nguyên</b>. Cái mới là <b>khung đối kháng</b>: ghép trận, đếm giờ, so điểm, cúp/hạng.</p>
+    <p class="lead">Luật trượt &amp; thao tác tap <b>giữ nguyên</b>. Cái mới là <b>khung đối kháng trên 1 bàn chung</b>: ghép trận, đếm giờ, tranh mũi tên, so điểm, cúp/hạng.</p>
     <div class="twocol">
       <div class="box old"><h4>Core gốc (Solo)</h4><ul>
         <li>Chơi một mình, không giới hạn giờ.</li>
@@ -152,31 +152,31 @@
         <li>Tiến độ tuyến tính qua các level.</li>
       </ul></div>
       <div class="box new"><h4>PvP Arena</h4><ul>
-        <li>Đối đầu 2 người, <b>đếm giờ</b>.</li>
-        <li>Thắng = <b>gỡ nhiều hơn</b> đối thủ.</li>
+        <li>2 người tranh trên <b>1 bàn chung</b>, <b>đếm giờ</b>.</li>
+        <li>Thắng = <b>gỡ nhiều mũi tên hơn</b> đối thủ.</li>
         <li><b>Cúp + hạng + vàng</b> theo kết quả trận.</li>
       </ul></div>
     </div>
-    <div class="tagchips"><span>Khung đối kháng mới</span><span>Luật trượt: giữ nguyên</span><span>Thao tác tap: giữ nguyên</span><span>Gắn meta Leagues</span></div>
+    <div class="tagchips"><span>1 bàn chung · tranh trực tiếp</span><span>Luật trượt: giữ nguyên</span><span>Thao tác tap: giữ nguyên</span><span>Gắn meta Leagues</span></div>
   </section>
 
   <section>
     <h2><span class="ico">⚙️</span>Triển khai — chọn đường đi (quan trọng)</h2>
     <p class="lead">Real-time PvP thật cần <b>backend + netcode</b> — đây là phần nặng nhất. Đề xuất chia 2 pha để giảm rủi ro:</p>
     <div class="mvp">
-      <div class="m m1"><b>Pha 1 — MVP “Ghost Race” <span class="tag go">làm trước</span></b>
-        Đua <b>bất đồng bộ</b>: đối thủ là <b>bản replay</b> của một người chơi khác (hoặc <b>bot</b> theo nhịp). Bạn thấy “bóng ma” tiến độ của họ chạy song song. <b>Không cần netcode realtime</b> — chỉ cần lưu/replay chuỗi nước đi + thời điểm. Cảm giác đua y như thật, ship nhanh, ít rủi ro.</div>
+      <div class="m m1"><b>Pha 1 — MVP “Ghost trên bàn chung” <span class="tag go">làm trước</span></b>
+        Đua <b>bất đồng bộ</b>: đối thủ là <b>bản replay/bot</b> mà các nước gỡ của họ được <b>áp lên CHÍNH bàn của bạn</b> theo đúng mốc thời gian đã ghi — mũi tên cứ tới giờ là “đối thủ” giật mất. Nếu bạn tap trước mốc đó → bạn cướp được, nước của ghost thành hụt. <b>Không cần netcode realtime</b>, vẫn cho cảm giác tranh bàn thật.</div>
       <div class="m m2"><b>Pha 2 — Real-time thật <span class="tag later">sau khi validate</span></b>
-        Matchmaking online + đồng bộ realtime (WebSocket/Photon/relay). Server xác thực kết quả (anti-cheat), tính cúp, chống ngắt mạng. Chỉ đầu tư khi Pha 1 chứng minh người chơi thích chế độ đua.</div>
+        Đồng bộ <b>shared state realtime</b> (WebSocket/Photon/relay): cùng một bàn, một host/server authoritative xử <b>tranh chấp khi cả hai tap cùng 1 mũi tên</b> (ai timestamp trước được tính, người kia hụt), tính cúp, chống ngắt mạng &amp; gian lận. Chỉ đầu tư khi Pha 1 chứng minh nhu cầu.</div>
     </div>
     <div class="impl" style="margin-top:16px">
       <ol>
-        <li><b>Tái dùng core</b>: cùng <code>GameState</code>/<code>ArrowView</code>/luật trượt; chỉ thêm lớp “match”.</li>
-        <li><b>Điểm số</b>: <code>arrowsCleared</code> đếm mỗi lần một mũi tên thoát; gửi/đối chiếu khi hết giờ.</li>
-        <li><b>Đối thủ</b>: Pha 1 = phát lại <code>(moveIndex, timestamp)</code> đã ghi; Pha 2 = state sync qua server.</li>
-        <li><b>Cúp/hạng</b>: hàm <code>trophyDelta(win/lose, gap)</code>; lưu vào progress; map cúp → tier để hiển thị Arena Ranks.</li>
-        <li><b>Công bằng</b>: cùng seed/level cho cả hai; cùng thời gian; ẩn bàn đối thủ ở mức chi tiết, chỉ lộ tiến độ.</li>
-        <li><b>Chống gian lận</b> (Pha 2): server-authoritative điểm, giới hạn tốc độ tap hợp lý.</li>
+        <li><b>Tái dùng core</b>: cùng <code>GameState</code>/<code>ArrowView</code>/luật trượt; bàn là <b>một state dùng chung</b>, chỉ thêm lớp “match” + chủ sở hữu nước đi.</li>
+        <li><b>Điểm số</b>: mỗi mũi tên thoát ghi nhận <code>clearedBy = playerId</code>; điểm mỗi người = số mũi tên mình gỡ.</li>
+        <li><b>Tranh chấp</b>: 1 mũi tên chỉ gỡ được 1 lần — ai tap hợp lệ trước (theo timestamp) thắng nước đó, người kia nhận “hụt”. Pha 1 so với mốc ghost; Pha 2 host quyết.</li>
+        <li><b>Đối thủ</b>: Pha 1 = phát lại <code>(arrowId, timestamp)</code> lên bàn chung; Pha 2 = đồng bộ state qua server.</li>
+        <li><b>Cúp/hạng</b>: hàm <code>trophyDelta(win/lose, gap)</code>; lưu progress; map cúp → tier để hiển thị Arena Ranks.</li>
+        <li><b>Chống gian lận</b> (Pha 2): server-authoritative cho cả state bàn lẫn điểm; giới hạn tốc độ tap hợp lý.</li>
       </ol>
     </div>
   </section>
@@ -190,7 +190,7 @@
       <div class="w"><b>Ship dần</b><p>Ghost-race ra trước, validate nhu cầu trước khi đổ tiền vào netcode realtime.</p></div>
     </div>
     <p class="risk">
-      <b>⚠ Câu hỏi mở cần chốt:</b> độ phức tạp &amp; chi phí netcode realtime; pool người chơi nhỏ lúc đầu (→ dùng bot/ghost để luôn có đối thủ); cân bằng cúp ăn/mất; chống gian lận tốc độ; xử lý ngắt mạng giữa trận.
+      <b>⚠ Câu hỏi mở cần chốt:</b> độ phức tạp &amp; chi phí netcode realtime cho bàn dùng chung; <b>công bằng độ trễ</b> khi hai người tranh cùng 1 mũi tên (ai tap trước được tính); pool người chơi nhỏ lúc đầu (→ dùng bot/ghost để luôn có đối thủ); cân bằng cúp ăn/mất; chống gian lận tốc độ; xử lý ngắt mạng giữa trận.
     </p>
   </section>
 

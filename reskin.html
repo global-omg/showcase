@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arrow Puzzle — 20 Reskin Concepts + Prompts (Chill / Cozy / Ghibli / Nature)</title>
+<style>
+  :root{
+    --ink:#2b2f3a; --muted:#7b8395; --line:#e7e9f0; --bg:#f6f7fb; --card:#ffffff;
+    --accent:#6c8f6b;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+  header{padding:46px 24px 26px;text-align:center;background:linear-gradient(180deg,#eef3ec,#f6f7fb)}
+  header h1{font-family:Georgia,serif;font-size:32px;margin:0 0 8px;font-weight:700}
+  header p{margin:4px auto;max-width:720px;color:var(--muted);font-size:14.5px}
+  .tags{margin-top:12px}
+  .tags span{display:inline-block;background:#fff;border:1px solid var(--line);border-radius:20px;padding:4px 13px;margin:3px;font-size:12.5px;color:var(--accent);font-weight:600}
+  .howto{max-width:920px;margin:20px auto 0;background:#fff;border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:12px;padding:14px 20px;text-align:left;font-size:13.5px;color:#4a5160}
+  .howto b{color:var(--ink)}
+  .howto code{background:#eef1ee;padding:1px 6px;border-radius:5px;font-size:12.5px;color:#3f6b4f}
+  .wrap{max-width:1280px;margin:0 auto;padding:24px 20px 80px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(560px,1fr));gap:22px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 4px 18px rgba(40,50,80,.05);display:flex;flex-direction:column}
+  .chead{padding:18px 20px 14px;border-bottom:1px solid var(--line)}
+  .num{font-size:12px;font-weight:700;color:#fff;background:var(--accent);border-radius:7px;padding:2px 9px;margin-right:8px;vertical-align:middle}
+  .cname{font-family:Georgia,serif;font-size:21px;font-weight:700;vertical-align:middle}
+  .vibe{color:var(--muted);font-size:13.5px;margin:8px 0 12px;font-style:italic}
+  .pal{display:flex;gap:0;border-radius:9px;overflow:hidden;border:1px solid var(--line)}
+  .pal div{flex:1;height:32px;position:relative}
+  .pal div span{position:absolute;bottom:2px;left:0;right:0;text-align:center;font-size:8px;color:rgba(0,0,0,.42);font-family:monospace}
+  .shots{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;padding:14px 20px 6px}
+  .shot{text-align:center}
+  .shot .frame{width:100%;aspect-ratio:9/16;border-radius:12px;border:1px dashed #d2d6e2;background:#f0f1f6 center/cover no-repeat;display:flex;align-items:center;justify-content:center;color:#aeb4c2;font-size:10.5px;overflow:hidden}
+  .shot .frame img{width:100%;height:100%;object-fit:cover}
+  .shot label{display:block;font-size:11px;color:var(--muted);margin-top:5px;font-weight:600}
+  .promptbox{margin:8px 20px 4px;background:#fbfcfb;border:1px solid #e3ebe1;border-radius:12px;overflow:hidden}
+  .pb-head{display:flex;align-items:center;justify-content:space-between;padding:9px 13px;background:#f1f5f0;border-bottom:1px solid #e3ebe1}
+  .pb-head .lbl{font-weight:700;color:var(--accent);font-size:11px;letter-spacing:.04em;text-transform:uppercase}
+  .copybtn{border:none;background:var(--accent);color:#fff;font-size:12px;font-weight:600;padding:5px 14px;border-radius:7px;cursor:pointer;transition:.15s}
+  .copybtn:hover{background:#5a7d59}
+  .copybtn.done{background:#3f9d5a}
+  .pb-body{padding:11px 14px;font-size:12px;color:#3a4150;font-family:ui-monospace,Menlo,monospace;white-space:pre-wrap;line-height:1.45;max-height:150px;overflow:auto}
+  .music{margin:10px 20px 18px;background:#f3f6f2;border:1px solid #e3ebe1;border-radius:12px;padding:11px 14px;font-size:12.5px}
+  .music .mt{font-weight:700;color:var(--accent);font-size:11px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:3px}
+  .music .ref{color:var(--muted);font-size:11.5px;margin-top:3px}
+  footer{text-align:center;color:var(--muted);font-size:12px;padding:30px}
+</style>
+</head>
+<body>
+<nav style="position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);padding:11px 22px;display:flex;align-items:center;gap:14px">
+  <a href="index.html" style="color:var(--accent);text-decoration:none;font-weight:700;font-size:14px">← Showcase</a>
+  <span style="color:var(--muted);font-size:13px">Reskin · 20 concept</span>
+</nav>
+<header>
+  <h1>Arrow Puzzle — 20 Ý tưởng Reskin + Prompt gen ảnh</h1>
+  <p>Hướng: <b>chill · relax · cute · Ghibli · thiên nhiên</b>. Mỗi concept = 1 bộ palette + art-direction + prompt gen ảnh + gợi ý nhạc nền.</p>
+  <div class="tags" id="tags"></div>
+  <div class="howto">
+    <b>Cách gen trên OpenArt</b> (Nano Banana 2 · project <code>congnq</code> · 9:16 | 1K):<br>
+    1. Mở <b>Add visual references → tab Uploads</b>, chọn ĐÚNG 1 ảnh nền cần reskin: <code>base_home</code> / <code>base_level</code> / <code>base_collect</code>.<br>
+    2. Dán <b>prompt</b> của concept (nút Copy) → bấm <b>Generate</b>.<br>
+    3. Lặp lại với 2 ảnh nền còn lại, <i>cùng 1 prompt</i>, để ra đủ 3 màn.<br>
+    <span style="color:var(--accent)">★ Reference quyết định layout màn — prompt quyết định phong cách, nên 1 prompt dùng chung cho cả 3 màn của 1 concept.</span>
+  </div>
+</header>
+<div class="wrap"><div class="grid" id="grid"></div></div>
+<footer>Base = 3 screenshot build hiện tại (Home / Level / Collection). Ảnh concept gen 9:16.</footer>
+
+<script>
+const C = [
+ {n:1,name:"Ghibli Meadow",slug:"01-ghibli-meadow",vibe:"Đồi cỏ Totoro, mây bông khổng lồ, nắng dịu — màu nước vẽ tay.",
+  pal:["#aedff0","#7cc36a","#3f7d4f","#fdf6e3","#ffd56b"],tex:"watercolor",
+  theme:"a peaceful Studio Ghibli rolling green meadow with big soft fluffy white clouds, distant blue hills, warm afternoon sunlight and tiny wildflowers, Totoro-like cozy countryside vibe",
+  mood:"chill, relaxing, cute, wholesome",
+  music:"Acoustic-orchestral nhẹ: piano + dàn dây + sáo flute", mref:"Joe Hisaishi / Studio Ghibli OST · ~70bpm, ấm áp"},
+ {n:2,name:"Forest Spirits (Kodama)",slug:"02-forest-spirits",vibe:"Gỗ mục phủ rêu, tinh linh cây trắng nhỏ, ánh nắng lọc qua tán lá.",
+  pal:["#5b7f4e","#6b4f3a","#e8efe6","#f4f7f2","#c7e0a8"],tex:"soft watercolor",
+  theme:"a misty ancient forest floor with moss-covered logs, dappled sunlight through the leaves, tiny white tree-spirits (kodama) and gently glowing spores",
+  mood:"calm, mystical, cute, serene",
+  music:"Ambient rừng: chime mềm + woodwinds + foley (chim, lá)", mref:"Forest ambient / lo-fi nature · rất tĩnh"},
+ {n:3,name:"Seaside Breeze",slug:"03-seaside-breeze",vibe:"Biển pastel, sóng lăn tăn, gỗ trôi, bọt biển — gió mát.",
+  pal:["#8fd4d0","#f3e4c7","#f7fbfb","#3b6e7a","#ff9e8a"],tex:"watercolor",
+  theme:"a pastel seaside with gentle turquoise waves, soft warm sand, sea-foam, driftwood and a clear breezy sky",
+  mood:"relaxed, breezy, cute, summery",
+  music:"Chillwave / lo-fi + tiếng sóng, ukulele, synth mềm", mref:"Beach lo-fi · thư giãn cuối tuần"},
+ {n:4,name:"Sakura Spring",slug:"04-sakura-spring",vibe:"Cánh hoa anh đào bay, hồng dịu, mùa xuân Nhật.",
+  pal:["#ffd1dc","#ff9eb5","#7a5c4f","#eaf4ff","#9fd39a"],tex:"delicate watercolor",
+  theme:"a soft Japanese cherry-blossom spring with drifting pink sakura petals, blooming branches and a pale gentle sky",
+  mood:"gentle, romantic, cute, peaceful",
+  music:"Koto + piano mềm, xuân Nhật nhẹ nhàng", mref:"Japanese spring lo-fi · koto chill"},
+ {n:5,name:"Autumn Cottagecore",slug:"05-autumn-cottagecore",vibe:"Lá vàng rơi, nấm, trà ấm — ấm cúng mùa thu.",
+  pal:["#e8a04b","#c25a3a","#f6ecd6","#6b4a32","#8a9a6b"],tex:"hand-painted",
+  theme:"a cozy autumn cottagecore scene with falling amber and rust leaves, little mushrooms, a warm cup of tea and soft golden afternoon light",
+  mood:"warm, cozy, nostalgic, cute",
+  music:"Guitar mộc ấm + cello, folk cozy, tiếng lửa lách tách", mref:"Cozy autumn folk · crackling fire"},
+ {n:6,name:"Misty Mountain",slug:"06-misty-mountain",vibe:"Bầu trời Ghibli, dãy núi xanh xa, sương mỏng.",
+  pal:["#bfe3f2","#6b86a8","#eef4f7","#36506e","#ffe9c7"],tex:"watercolor",
+  theme:"a serene Ghibli sky above distant blue mountain ranges and a soft sea of clouds, thin morning mist, airy and expansive",
+  mood:"calm, dreamy, serene, spacious",
+  music:"Cinematic ambient: pad bay bổng + piano solo", mref:"Expansive ambient · tĩnh & rộng"},
+ {n:7,name:"Lavender Fields",slug:"07-lavender-fields",vibe:"Cánh đồng oải hương tím, hoàng hôn Provence.",
+  pal:["#b9a3e3","#7a5fb0","#f3e8ff","#8aa873","#f0c674"],tex:"watercolor",
+  theme:"Provence lavender fields with purple rows stretching toward a soft sunset, gentle dusk light and a few bees",
+  mood:"soothing, dreamy, cute, romantic",
+  music:"Ambient mơ màng + accordion nhẹ, đồng quê Pháp", mref:"Dreamy Provence ambient"},
+ {n:8,name:"Mushroom Village",slug:"08-mushroom-village",vibe:"Nấm đỏ chấm trắng, cute kiểu gnome, sách tranh.",
+  pal:["#e5604f","#fbf3e0","#6f9a5a","#6b4a3a","#ffe08a"],tex:"storybook illustration",
+  theme:"a whimsical storybook mushroom village with red-cap toadstools with white spots, tiny round doors, soft moss and fireflies",
+  mood:"playful, magical, very cute, cozy",
+  music:"Celesta whimsical + pizzicato strings, vui nhộn", mref:"Storybook playful · cổ tích"},
+ {n:9,name:"Koi & Zen Garden",slug:"09-koi-zen",vibe:"Hồ koi, lá súng, đá, vườn thiền Nhật tĩnh lặng.",
+  pal:["#9fd0cf","#ff9b54","#cdd2cf","#3d6b66","#f6faf8"],tex:"soft watercolor",
+  theme:"a tranquil Japanese zen garden with a clear koi pond, orange koi fish, lily pads, smooth stones and raked sand",
+  mood:"zen, peaceful, balanced, serene",
+  music:"Shakuhachi + koto + tiếng nước, thiền định", mref:"Zen meditation · rất chậm"},
+ {n:10,name:"Golden Hour Picnic",slug:"10-golden-hour-picnic",vibe:"Hoàng hôn vàng, picnic, khăn trải — giờ vàng ấm.",
+  pal:["#ffcaa0","#ffb866","#8a5a6b","#fff3e2","#9bbf7a"],tex:"watercolor",
+  theme:"a warm golden-hour meadow picnic with soft peach sunset light, a checkered blanket, a wicker basket and long swaying grass",
+  mood:"warm, relaxed, nostalgic, cozy",
+  music:"Lo-fi ấm: electric piano + sax mềm, sunset chill", mref:"Sunset lo-fi · thư giãn"},
+ {n:11,name:"Rainy Window Café",slug:"11-rainy-cafe",vibe:"Quán ấm, mưa ngoài cửa, đèn vàng, cây xanh.",
+  pal:["#e0a86a","#5f8a86","#f4ecdd","#4f3b30","#aebfc9"],tex:"soft illustration",
+  theme:"a cozy café interior on a rainy day with warm lamp glow, raindrops running down the window, potted plants and warm wood textures",
+  mood:"cozy, chill, lo-fi, comforting",
+  music:"Lo-fi hip-hop beats + tiếng mưa (study/relax kinh điển)", mref:"lofi beats to relax/study"},
+ {n:12,name:"Starry Camp",slug:"12-starry-camp",vibe:"Cắm trại đêm dịu, đom đóm, lều — dark theme êm.",
+  pal:["#2b3a5a","#ffe9a8","#e0795a","#3f6b54","#9fd1ff"],tex:"watercolor",
+  theme:"a peaceful night camping scene under a soft starry sky, a gentle campfire glow, a small tent, pine trees and fireflies (dark theme — use light cream text so it stays readable)",
+  mood:"calm, cozy, dreamy night",
+  music:"Ambient đêm: pad mềm + dế kêu + guitar mộc", mref:"Calm night ambient · dark cozy"},
+ {n:13,name:"Snowy Cabin",slug:"13-snowy-cabin",vibe:"Trắng-xanh dịu, ánh đèn cửa sổ ấm — đông ấm cúng.",
+  pal:["#eef4fb","#bcd6ec","#8a6b4f","#ffd99a","#4f6b58"],tex:"watercolor",
+  theme:"a cozy winter scene with soft snow, a little cabin with warm glowing windows, pine trees and gentle falling snowflakes",
+  mood:"cozy, peaceful, warm-in-the-cold",
+  music:"Piano nhẹ + chuông mềm, đông hushed", mref:"Winter cozy piano · ấm yên"},
+ {n:14,name:"Soft Jungle",slug:"14-soft-jungle",vibe:"Lá monstera, cọ, xanh teal mềm — nhiệt đới dịu.",
+  pal:["#5aa07a","#2f6b52","#f1efe0","#ffd76b","#244b3c"],tex:"watercolor",
+  theme:"a soft tropical jungle with big monstera and palm leaves, gentle filtered sunlight and a calm misty green atmosphere, lush but mellow",
+  mood:"relaxed, lush, tropical, chill",
+  music:"Bossa nova nhẹ + marimba, tropical chill", mref:"Tropical bossa lo-fi"},
+ {n:15,name:"Cloud Kingdom",slug:"15-cloud-kingdom",vibe:"Mây kẹo bông, trời pastel — mơ màng bay bổng.",
+  pal:["#cfe8ff","#ffd9ec","#d9c7ff","#fbfdff","#ffe6a3"],tex:"soft dreamy illustration",
+  theme:"a dreamy pastel cloud kingdom with cotton-candy clouds, a soft sky, floating islands and gentle rainbows",
+  mood:"dreamy, floaty, cute, magical",
+  music:"Synth mơ + harp glissando, ambient floaty", mref:"Dreamy pastel ambient"},
+ {n:16,name:"Desert Oasis",slug:"16-desert-oasis",vibe:"Cát be, xương rồng cute, terracotta — ấm mộc.",
+  pal:["#f0dcae","#d08c5e","#7a9b6b","#ffe9c7","#6b4a3a"],tex:"watercolor",
+  theme:"a warm soft desert with rolling beige dunes, cute round cacti, terracotta rocks and a gentle warm sky",
+  mood:"warm, calm, earthy, cute",
+  music:"Guitar mộc + gõ tay nhẹ, southwestern mellow", mref:"Warm desert acoustic"},
+ {n:17,name:"Bamboo Grove",slug:"17-bamboo-grove",vibe:"Rừng tre xanh, panda cute — thanh tịnh Á Đông.",
+  pal:["#8fbf6e","#4a7a3f","#eef4e6","#3a3f3a","#f7f4e8"],tex:"ink-and-watercolor",
+  theme:"a serene East-Asian bamboo grove with soft green bamboo stalks, gentle mist, a cute little panda and falling leaves",
+  mood:"serene, tranquil, cute, zen",
+  music:"Guzheng/erhu + sáo mềm, serene Á Đông", mref:"Chinese/Asian serene · tĩnh"},
+ {n:18,name:"Wildflower Garden",slug:"18-wildflower-garden",vibe:"Hoa dại, bướm, nắng — tươi sáng dịu.",
+  pal:["#8ec96b","#ff9ec0","#ffd95a","#cdeeff","#5a8a4f"],tex:"watercolor",
+  theme:"a bright cheerful wildflower garden with colorful blooms, fluttering butterflies, soft sunlight and a green meadow",
+  mood:"cheerful, sunny, cute, light",
+  music:"Acoustic vui + glockenspiel, nắng nhẹ", mref:"Sunny acoustic · tươi sáng"},
+ {n:19,name:"Mossy Fairy Woodland",slug:"19-mossy-woodland",vibe:"Rêu đậm, dương xỉ, ánh tiên — rừng huyền ảo.",
+  pal:["#3c5e3a","#6f9a5a","#cfe89a","#4f3b2f","#e6efe2"],tex:"hand-painted watercolor",
+  theme:"an enchanted mossy woodland with deep green moss, ferns, glowing fairy lights and soft mist",
+  mood:"enchanted, magical, calm, cozy",
+  music:"Harp ethereal + choir pad mềm + foley rừng", mref:"Enchanted woodland · huyền ảo"},
+ {n:20,name:"Onsen Hot Spring",slug:"20-onsen",vibe:"Suối nước nóng, hơi nước ấm, gỗ — thư giãn sâu.",
+  pal:["#eef2f1","#b07a4f","#9fcbd0","#8a8f8c","#ffcaa0"],tex:"soft watercolor",
+  theme:"a relaxing Japanese onsen hot spring with rising warm steam, wooden bath houses, smooth stones, lanterns and maple leaves",
+  mood:"relaxing, warm, soothing, cozy",
+  music:"Spa ambient: koto + nước + chuông bowl nhẹ", mref:"Onsen spa · thư giãn sâu"},
+];
+
+function buildPrompt(c){
+  return `Reskin this mobile puzzle game UI screen. Keep the EXACT same layout, all UI elements, buttons, icons, text, numbers and overall composition from the reference image — change ONLY the visual style: the background, colors, textures, and the styling of buttons and icons. Restyle the whole screen into ${c.theme}. Color palette: ${c.pal.join(', ')}. Mood: ${c.mood}. Soft rounded shapes, gentle soft lighting, hand-painted ${c.tex} textures, high-quality cozy mobile game art. Keep every piece of text crisp, legible and in its original position. Portrait 9:16 phone screen.`;
+}
+
+document.getElementById('tags').innerHTML =
+ ["chill","relax","cute","Ghibli","thiên nhiên","cozy","pastel","watercolor"].map(t=>`<span>${t}</span>`).join('');
+
+const screens=[["home","Home"],["level","Level"],["collect","Collection"]];
+document.getElementById('grid').innerHTML = C.map(c=>{
+ const prompt=buildPrompt(c);
+ return `
+ <div class="card">
+   <div class="chead">
+     <span class="num">${String(c.n).padStart(2,'0')}</span><span class="cname">${c.name}</span>
+     <div class="vibe">${c.vibe}</div>
+     <div class="pal">${c.pal.map(h=>`<div style="background:${h}"><span>${h}</span></div>`).join('')}</div>
+   </div>
+   <div class="shots">
+     ${screens.map(([k,lbl])=>`<div class="shot"><div class="frame">
+        <img src="images/${c.slug}/${k}.png" alt="${lbl}" onerror="this.style.display='none';this.parentNode.textContent='chưa gen';">
+     </div><label>${lbl}</label></div>`).join('')}
+   </div>
+   <div class="promptbox">
+     <div class="pb-head"><span class="lbl">✎ Prompt gen ảnh (dùng cho cả 3 màn)</span>
+       <button class="copybtn" data-p="${encodeURIComponent(prompt)}">Copy</button></div>
+     <div class="pb-body">${prompt.replace(/</g,'&lt;')}</div>
+   </div>
+   <div class="music">
+     <div class="mt">♪ Nhạc nền gợi ý</div>
+     <div>${c.music}</div>
+     <div class="ref">${c.mref}</div>
+   </div>
+ </div>`;}).join('');
+
+document.querySelectorAll('.copybtn').forEach(b=>{
+ b.addEventListener('click',()=>{
+   const txt=decodeURIComponent(b.dataset.p);
+   navigator.clipboard.writeText(txt).then(()=>{
+     const o=b.textContent;b.textContent='✓ Đã copy';b.classList.add('done');
+     setTimeout(()=>{b.textContent=o;b.classList.remove('done');},1400);
+   });
+ });
+});
+</script>
+</body>
+</html>

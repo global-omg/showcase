@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arrow Puzzle — 10 Ý tưởng Refresh Gameplay</title>
+<style>
+  :root{
+    --ink:#1d2330; --muted:#7b8395; --line:#e7e9f0; --bg:#f6f7fb; --card:#ffffff;
+    --accent:#3a54d6; --accentSoft:#eef1ff;
+    --catA:#2e9e6b; --catB:#3a54d6; --catC:#e08a2b;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+  nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);padding:11px 22px;display:flex;align-items:center;gap:14px}
+  nav a{color:var(--accent);text-decoration:none;font-weight:700;font-size:14px}
+  nav span{color:var(--muted);font-size:13px}
+  header{padding:42px 24px 22px;text-align:center;background:linear-gradient(180deg,#eaeeff,#f6f7fb)}
+  header h1{font-family:Georgia,serif;font-size:31px;margin:0 0 8px;font-weight:700}
+  header p{margin:4px auto;max-width:760px;color:var(--muted);font-size:14.5px}
+  .core{max-width:940px;margin:18px auto 0;background:#fff;border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:12px;padding:14px 20px;text-align:left;font-size:13.5px;color:#4a5160}
+  .core b{color:var(--ink)}
+  .core .mech{background:var(--accentSoft);border-radius:8px;padding:9px 12px;margin-top:8px;font-size:13px}
+  .legend{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+  .legend span{font-size:12px;font-weight:700;border-radius:20px;padding:4px 12px;border:1px solid var(--line);background:#fff}
+  .wrap{max-width:1180px;margin:0 auto;padding:26px 20px 80px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(530px,1fr));gap:22px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 4px 18px rgba(40,50,80,.05);display:flex}
+  .card .pic{flex:0 0 188px;background:#eef0f6;display:flex;align-items:center;justify-content:center;border-right:1px solid var(--line)}
+  .card .pic img{width:100%;height:100%;object-fit:cover;display:block}
+  .card .pic.empty{color:#aeb4c2;font-size:11px;min-height:330px}
+  .body{flex:1;padding:18px 20px;display:flex;flex-direction:column;min-width:0}
+  .top{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+  .num{font-size:12px;font-weight:800;color:#fff;background:var(--accent);border-radius:7px;padding:2px 9px}
+  .cname{font-family:Georgia,serif;font-size:20px;font-weight:700}
+  .cat{font-size:10.5px;font-weight:800;border-radius:20px;padding:2px 10px;color:#fff;letter-spacing:.02em}
+  .vibe{color:var(--muted);font-size:13px;font-style:italic;margin:8px 0 12px}
+  .row{margin:7px 0;font-size:13px}
+  .row .lbl{display:inline-block;font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--accent);background:var(--accentSoft);border-radius:6px;padding:2px 8px;margin-right:7px}
+  .row.core-row .lbl{color:#8a5a00;background:#fff3df}
+  .row.feel-row .lbl{color:#1d7a4f;background:#e4f5ec}
+  .row code{background:#eef1ee;padding:1px 6px;border-radius:5px;font-size:12px;color:#3f4b6b;font-family:ui-monospace,Menlo,monospace}
+  .rec{margin-top:auto;padding-top:10px;font-size:11.5px;color:var(--catA);font-weight:700}
+  footer{text-align:center;color:var(--muted);font-size:12px;padding:30px}
+  @media(max-width:580px){.card{flex-direction:column}.card .pic{flex:none;border-right:none;border-bottom:1px solid var(--line)}.card .pic img{height:auto}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html">← Showcase</a>
+  <span>Refresh Gameplay · 10 ý tưởng</span>
+</nav>
+<header>
+  <h1>Arrow Puzzle — 10 Ý tưởng Refresh Gameplay</h1>
+  <p>Mục tiêu: <b>làm mới gameplay nhưng chỉ đổi core một chút, giữ nguyên cảm giác</b> tap-to-slide đặc trưng.</p>
+  <div class="core">
+    <b>Core hiện tại:</b> mỗi mũi tên là một polyline; tap → mũi tên trượt head-first ra mép board nếu tia thẳng từ đầu tới mép không vướng mũi tên khác. Thắng = dọn sạch board.
+    <div class="mech">Nguyên tắc của 10 ý tưởng: <b>giữ nguyên luật trượt + thao tác tap</b>, chỉ thêm 1 lớp tương tác mới lên chính cái tia thoát đó → puzzle space mở rộng mà feeling không đổi.</div>
+    <div class="legend">
+      <span style="border-color:var(--catA);color:var(--catA)">● Nhóm A — Cell/State (đổi core ít nhất ✦ khuyến nghị)</span>
+      <span style="border-color:var(--catB);color:var(--catB)">● Nhóm B — Biến thể luật trượt</span>
+      <span style="border-color:var(--catC);color:var(--catC)">● Nhóm C — Đổi mục tiêu</span>
+    </div>
+  </div>
+</header>
+<div class="wrap"><div class="grid" id="grid"></div></div>
+<footer>Ảnh mock dựng bằng OpenArt (Nano Banana 2, img2image từ screenshot Level thật). Ảnh chỉ minh hoạ ý tưởng — chưa phải build.</footer>
+
+<script>
+const CAT = {A:{name:"Nhóm A · Cell/State",color:"var(--catA)"},B:{name:"Nhóm B · Luật trượt",color:"var(--catB)"},C:{name:"Nhóm C · Mục tiêu",color:"var(--catC)"}};
+const D = [
+ {n:1,slug:"frozen-arrow",cat:"A",name:"Mũi tên băng giá",
+  vibe:"Vài mũi tên bị bọc băng — phải đập băng trước khi trượt.",
+  mech:"Một số mũi tên bị bọc trong khối băng. Tap lần 1 làm nứt băng, tap lần 2 mới trượt ra như thường.",
+  core:"Thêm field <code>frozenHits</code> cho arrow; mỗi tap giảm 1, về 0 mới cho <code>PlayExit</code>. Luật trượt y nguyên.",
+  feel:"Vẫn tap-to-slide, chỉ thêm 1 nhịp “đập băng” tạo lớp khó mới.",rec:true},
+ {n:2,slug:"color-gates",cat:"A",name:"Cổng thoát theo màu",
+  vibe:"Mũi tên màu chỉ thoát qua cổng cùng màu ở mép board.",
+  mech:"Mũi tên có màu; mép board có cổng màu. Mũi tên chỉ được thoát qua mép trùng màu của nó.",
+  core:"<code>CanExit</code> thêm điều kiện màu cổng tại ô mép. Tận dụng <code>ColorIdx</code> đã có sẵn trong data.",
+  feel:"Ép thứ tự & hướng giải, nhưng thao tác vẫn chỉ là tap.",rec:true},
+ {n:3,slug:"wall-blocks",cat:"A",name:"Ô tường chặn",
+  vibe:"Vài ô là tường đá cố định, chặn tia thoát.",
+  mech:"Một số ô là tường đá bất động, chặn tia thoát giống như có mũi tên khác đứng ở đó.",
+  core:"Thêm danh sách ô tường vào board; ray-cast coi tường là vật cản. Không thêm luật mới.",
+  feel:"Tăng độ khó & định hình board, giữ nguyên cảm giác chơi.",rec:true},
+ {n:10,slug:"chain-lock",cat:"A",name:"Mũi tên bị xích",
+  vibe:"Mũi tên bị khoá, mở khi mũi tên khác trượt cắt ngang.",
+  mech:"Mũi tên bị xích/khoá, chỉ mở khi một mũi tên khác trượt cắt ngang qua ô của nó.",
+  core:"Flag <code>locked</code> cho arrow; unlock khi ô của nó bị một arrow khác quét qua lúc trượt.",
+  feel:"Tạo phụ thuộc giữa các mũi tên, nhưng vẫn tap-to-slide.",rec:true},
+ {n:4,slug:"portal",cat:"B",name:"Cổng dịch chuyển",
+  vibe:"Tia thoát chạm portal → nhảy sang portal kia rồi đi tiếp.",
+  mech:"Tia thoát khi chạm 1 portal sẽ nhảy sang portal cặp đôi rồi tiếp tục đi thẳng tới mép.",
+  core:"Ray traversal đi qua cặp portal: teleport toạ độ + giữ nguyên hướng.",
+  feel:"Vẫn “tap → trượt ra”, chỉ là đường thoát thông minh & bất ngờ hơn.",rec:false},
+ {n:5,slug:"push-domino",cat:"B",name:"Đẩy dây chuyền",
+  vibe:"Mũi tên kẹt sẽ đẩy mũi tên phía trước 1 ô — phản ứng domino.",
+  mech:"Mũi tên bị chặn không đứng im mà ĐẨY mũi tên phía trước 1 ô (nếu còn chỗ), tạo phản ứng dây chuyền.",
+  core:"Khi blocked, thử <code>push</code> mũi tên kế trước thay vì chỉ <code>shake</code>.",
+  feel:"Thêm chất “domino” cho mỗi cú tap, vẫn rất bản năng.",rec:false},
+ {n:6,slug:"pivot-turn",cat:"B",name:"Mũi tên rẽ hướng",
+  vibe:"Mũi tên rẽ một lần tại pivot thay vì chỉ đi thẳng.",
+  mech:"Mũi tên có thể RẼ một lần tại điểm pivot trên đường thoát, không chỉ đi thẳng.",
+  core:"Cho phép thoát qua đường gấp khúc — dùng <code>BendCount</code> đã có trong data level.",
+  feel:"Mở rộng không gian giải, cùng một cách chơi.",rec:false},
+ {n:7,slug:"ordered-exit",cat:"C",name:"Thoát theo thứ tự",
+  vibe:"Mũi tên đánh số — phải cho thoát đúng 1·2·3…",
+  mech:"Mũi tên đánh số 1-2-3…; phải cho thoát ĐÚNG thứ tự, sai thì mũi tên không trượt.",
+  core:"Chỉ thêm điều kiện thứ tự vào lúc cho phép thoát. Luật trượt nguyên vẹn.",
+  feel:"Thêm lớp tư duy chuỗi, không đổi thao tác.",rec:false},
+ {n:8,slug:"collect-stars",cat:"C",name:"Nhặt sao",
+  vibe:"Đường trượt phải quét qua hết sao trên board mới thắng.",
+  mech:"Rải sao trên board; đường trượt của các mũi tên phải quét qua HẾT sao mới tính thắng.",
+  core:"Kiểm tra collectible nằm trên đường đi khi mũi tên trượt.",
+  feel:"Thêm mục tiêu phụ “ăn sao”, board cũ vẫn chơi được.",rec:false},
+ {n:9,slug:"par-moves",cat:"C",name:"Giải trong N nước",
+  vibe:"Chỉ tiêu số lần tap (par) + xếp hạng sao.",
+  mech:"Mỗi màn có chỉ tiêu số lần tap (par); xếp hạng 1-3 sao theo số nước đã dùng.",
+  core:"Chỉ thêm bộ đếm + rating, KHÔNG đổi luật chơi.",
+  feel:"Thêm động lực tối ưu & chơi lại, gameplay gốc giữ nguyên 100%.",rec:false},
+];
+D.sort((a,b)=>a.n-b.n);
+
+document.getElementById('grid').innerHTML = D.map(d=>{
+ const c=CAT[d.cat];
+ return `
+ <div class="card">
+   <div class="pic"><img src="images/gameplay/${d.slug}.png" alt="${d.name}" onerror="this.parentNode.classList.add('empty');this.style.display='none';this.parentNode.textContent='chưa gen';"></div>
+   <div class="body">
+     <div class="top">
+       <span class="num">${String(d.n).padStart(2,'0')}</span>
+       <span class="cname">${d.name}</span>
+       <span class="cat" style="background:${c.color}">${c.name}</span>
+     </div>
+     <div class="vibe">${d.vibe}</div>
+     <div class="row"><span class="lbl">Cơ chế</span>${d.mech}</div>
+     <div class="row core-row"><span class="lbl">Đổi core</span>${d.core}</div>
+     <div class="row feel-row"><span class="lbl">Giữ feeling</span>${d.feel}</div>
+     ${d.rec?'<div class="rec">✦ Rủi ro thấp — tái dùng được toàn bộ level cũ</div>':''}
+   </div>
+ </div>`;}).join('');
+</script>
+</body>
+</html>

@@ -44,6 +44,12 @@
   .feature p{margin:0;font-size:14.5px;color:#4a5160;max-width:600px}
   .feature .go{margin-top:16px;display:inline-block;border-radius:9px;padding:8px 18px;background:#e8893f;color:#fff;font-weight:700;font-size:14px;width:max-content}
   @media(max-width:620px){.feature{flex-direction:column}.feature .fpic{flex:none;height:200px;border-right:none;border-bottom:1px solid #f0dcc6}}
+  .feature.pvp{border-color:#f3c6cc;box-shadow:0 6px 24px rgba(224,57,79,.10)}
+  .feature.pvp:hover{box-shadow:0 14px 36px rgba(224,57,79,.18)}
+  .feature.pvp .fpic{background:#ffe9ec;border-right-color:#f3c6cc}
+  .feature.pvp .badge,.feature.pvp .go{background:#e0394f}
+  .feature.pvp .count{color:#c02a3e}
+  @media(max-width:620px){.feature.pvp .fpic{border-bottom-color:#f3c6cc}}
   footer{text-align:center;color:var(--muted);font-size:12px;padding:20px 24px 50px}
 </style>
 </head>
@@ -62,6 +68,17 @@
       <h2>🐱 Giải Cứu Mèo</h2>
       <div class="count">Mở đường thoát cho mèo · giới hạn nước đi · không cần gỡ hết</div>
       <p>Bạn mèo bị nhốt giữa mê cung mũi tên — trượt mũi tên để mở một lối cho mèo chạy ra. Đổi điều kiện thắng (reachability) + thêm move-limit, giữ nguyên thao tác tap. Kèm brief & ghi chú triển khai cho dev.</p>
+      <span class="go">Xem ý tưởng đầy đủ →</span>
+    </div>
+  </a>
+
+  <a class="feature pvp" href="pvp.html">
+    <div class="fpic"><img src="images/pvp/versus.png" alt="" onerror="this.style.display='none'"></div>
+    <div class="fmeta">
+      <span class="badge">★ CONCEPT ĐỀ XUẤT</span>
+      <h2>⚔️ PvP Arena — Đấu Mũi Tên</h2>
+      <div class="count">2 người đua gỡ mũi tên · đếm giờ · cúp &amp; leo hạng &amp; vàng</div>
+      <p>Hai người đối đầu cùng một bàn — ai gỡ nhiều mũi tên hơn trong thời gian giới hạn sẽ thắng, nhận vàng &amp; cúp để leo hạng. Giữ nguyên luật trượt; thêm khung đối kháng. Kèm lộ trình MVP “ghost race” → real-time cho dev.</p>
       <span class="go">Xem ý tưởng đầy đủ →</span>
     </div>
   </a>

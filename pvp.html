@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arrow Puzzle — PvP Arena (Đấu mũi tên)</title>
+<style>
+  :root{
+    --ink:#1d2330; --muted:#7b8395; --line:#e7e9f0; --bg:#f6f7fb; --card:#ffffff;
+    --accent:#3a54d6; --accentSoft:#eef1ff; --pvp:#e0394f; --pvpSoft:#ffeaed; --gold:#e8a93f; --ok:#2e9e6b;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+  nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);padding:11px 22px;display:flex;align-items:center;gap:14px}
+  nav a{color:var(--accent);text-decoration:none;font-weight:700;font-size:14px}
+  nav span{color:var(--muted);font-size:13px}
+  .hero{background:linear-gradient(180deg,#ffe9ec,#f6f7fb);padding:46px 24px 30px}
+  .hero .in{max-width:1000px;margin:0 auto;display:flex;gap:34px;align-items:center;flex-wrap:wrap}
+  .hero .pic{flex:0 0 230px;border-radius:22px;overflow:hidden;border:1px solid var(--line);box-shadow:0 10px 30px rgba(40,50,80,.12);background:#eef0f6}
+  .hero .pic img{width:100%;display:block}
+  .hero .txt{flex:1;min-width:280px}
+  .pill{display:inline-block;background:var(--pvp);color:#fff;font-size:12px;font-weight:800;letter-spacing:.05em;border-radius:20px;padding:4px 13px;text-transform:uppercase}
+  .hero h1{font-family:Georgia,serif;font-size:38px;margin:12px 0 6px;font-weight:700}
+  .hero .sub{font-size:16px;color:#4a5160;max-width:560px}
+  .hero .tagline{margin-top:14px;font-size:15px;font-weight:600;color:var(--pvp);background:var(--pvpSoft);border-left:4px solid var(--pvp);border-radius:0 10px 10px 0;padding:11px 16px}
+  .wrap{max-width:1000px;margin:0 auto;padding:18px 22px 90px}
+  section{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px 26px;margin-top:22px;box-shadow:0 4px 18px rgba(40,50,80,.04)}
+  section h2{font-family:Georgia,serif;font-size:23px;margin:0 0 4px}
+  section h2 .ico{margin-right:8px}
+  section .lead{color:var(--muted);font-size:14px;margin:0 0 16px}
+  .loop{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+  @media(max-width:720px){.loop{grid-template-columns:1fr}.hero .in{flex-direction:column}}
+  .step{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fbfcff;display:flex;flex-direction:column}
+  .step .frame{aspect-ratio:9/16;background:#eef0f6 center/cover no-repeat;overflow:hidden}
+  .step .frame img{width:100%;height:100%;object-fit:cover;display:block}
+  .step .cap{padding:12px 14px}
+  .step .cap b{display:block;font-size:14.5px;margin-bottom:3px}
+  .step .cap b .n{display:inline-block;width:22px;height:22px;line-height:22px;text-align:center;border-radius:50%;background:var(--pvp);color:#fff;font-size:12px;margin-right:7px}
+  .step .cap p{margin:0;font-size:13px;color:#4a5160}
+  ul.rules{margin:0;padding:0;list-style:none}
+  ul.rules li{position:relative;padding:9px 0 9px 30px;border-bottom:1px dashed var(--line);font-size:14.5px}
+  ul.rules li:last-child{border-bottom:none}
+  ul.rules li:before{content:"";position:absolute;left:6px;top:16px;width:9px;height:9px;border-radius:50%;background:var(--pvp)}
+  ul.rules li.win:before{background:var(--ok)}
+  ul.rules li b{color:var(--ink)}
+  .twocol{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  @media(max-width:720px){.twocol{grid-template-columns:1fr}}
+  .box{border-radius:12px;padding:14px 16px;font-size:14px}
+  .box.old{background:#f4f5f8;border:1px solid var(--line)}
+  .box.new{background:var(--pvpSoft);border:1px solid #f6cdd3}
+  .box h4{margin:0 0 8px;font-size:13px;text-transform:uppercase;letter-spacing:.05em}
+  .box.old h4{color:var(--muted)} .box.new h4{color:var(--pvp)}
+  .box ul{margin:0;padding-left:18px} .box li{margin:5px 0}
+  code{background:#eef1ee;padding:1px 6px;border-radius:5px;font-size:12.5px;color:#3f4b6b;font-family:ui-monospace,Menlo,monospace}
+  .impl{font-size:14px}
+  .impl ol{padding-left:20px;margin:0} .impl ol li{margin:9px 0}
+  .mvp{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:14px}
+  @media(max-width:720px){.mvp{grid-template-columns:1fr}}
+  .mvp .m{border-radius:12px;padding:14px 16px;font-size:13.5px}
+  .mvp .m1{background:var(--accentSoft);border:1px solid #d5dcff}
+  .mvp .m2{background:#f4f5f8;border:1px solid var(--line)}
+  .mvp .m b{display:block;font-size:13px;text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px}
+  .mvp .m1 b{color:var(--accent)} .mvp .m2 b{color:var(--muted)}
+  .tag{display:inline-block;font-size:11px;font-weight:800;border-radius:20px;padding:2px 9px;margin-left:6px}
+  .tag.go{background:#e4f5ec;color:var(--ok)} .tag.later{background:#fdeede;color:#b5791f}
+  .why{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:720px){.why{grid-template-columns:1fr}}
+  .why .w{background:#fbfcff;border:1px solid var(--line);border-radius:12px;padding:13px 15px}
+  .why .w b{display:block;font-size:14px;margin-bottom:3px;color:var(--pvp)}
+  .why .w p{margin:0;font-size:13px;color:#4a5160}
+  .risk{background:#fff8f1;border:1px solid #f0dcc6;border-left:4px solid var(--gold);border-radius:0 12px 12px 0;padding:6px 18px}
+  .tagchips{margin-top:6px}
+  .tagchips span{display:inline-block;background:var(--accentSoft);color:var(--accent);border-radius:20px;padding:3px 11px;font-size:12px;font-weight:700;margin:3px 5px 3px 0}
+  footer{text-align:center;color:var(--muted);font-size:12px;padding:30px}
+  .note{font-size:12.5px;color:var(--muted);margin-top:10px}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html">← Showcase</a>
+  <span>Ý tưởng đặc biệt · PvP Arena</span>
+</nav>
+
+<div class="hero">
+  <div class="in">
+    <div class="pic"><img src="images/pvp/versus.png" alt="PvP versus"></div>
+    <div class="txt">
+      <span class="pill">★ Concept đề xuất</span>
+      <h1>PvP Arena — Đấu Mũi Tên</h1>
+      <div class="sub">Hai người chơi đối đầu trên cùng một màn: ai <b>gỡ được nhiều mũi tên hơn</b> trong thời gian giới hạn sẽ thắng. Người thắng nhận <b>vàng</b> và <b>cúp (trophy)</b> để <b>leo hạng</b> qua các giải đấu.</div>
+      <div class="tagline">⚔️ “Cùng một bàn cờ — ai tay nhanh & tính giỏi hơn sẽ thắng.”</div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <section>
+    <h2><span class="ico">🔄</span>Vòng lặp cốt lõi</h2>
+    <p class="lead">Một trận đấu diễn ra qua 3 nhịp — minh hoạ bằng ảnh mock dưới đây.</p>
+    <div class="loop">
+      <div class="step">
+        <div class="frame"><img src="images/pvp/versus.png" alt="Versus"></div>
+        <div class="cap"><b><span class="n">1</span>Ghép trận</b><p>Tìm đối thủ cùng tầm cúp. Màn hình VS hiện 2 avatar + số cúp. Nhấn <b>Find Match</b> để vào trận.</p></div>
+      </div>
+      <div class="step">
+        <div class="frame"><img src="images/pvp/duel.png" alt="Duel"></div>
+        <div class="cap"><b><span class="n">2</span>Đấu tốc độ</b><p>Cả hai nhận <b>cùng một bàn</b>. Bộ đếm giờ chạy; bạn thấy tiến độ đối thủ ở trên. Tap để gỡ mũi tên thật nhanh.</p></div>
+      </div>
+      <div class="step">
+        <div class="frame"><img src="images/pvp/result.png" alt="Result"></div>
+        <div class="cap"><b><span class="n">3</span>Kết quả &amp; thưởng</b><p>Hết giờ, ai gỡ nhiều hơn thắng. Thắng = <b>+vàng</b> &amp; <b>+cúp</b> → leo hạng. Thua mất ít cúp.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="ico">📜</span>Thể thức &amp; luật</h2>
+    <ul class="rules">
+      <li><b>1 đấu 1.</b> Hai người chơi nhận <b>cùng một màn</b> (giống hệt, để công bằng) trên màn hình của mỗi người.</li>
+      <li>Thao tác y nguyên core: tap → mũi tên trượt ra mép nếu đường thoát trống. <b>Giữ nguyên luật trượt.</b></li>
+      <li><b>Đếm giờ</b> (vd 60 giây). Trong thời gian đó, gỡ được càng nhiều mũi tên càng tốt.</li>
+      <li class="win"><b>THẮNG = gỡ được NHIỀU mũi tên hơn</b> khi hết giờ. Nếu ai <b>gỡ sạch bàn trước</b> → thắng ngay lập tức.</li>
+      <li>Hoà (bằng số mũi tên) → người gỡ sạch/nhiều hơn ở mốc thời gian sớm hơn thắng, hoặc chia nhỏ thưởng.</li>
+      <li>Thấy <b>tiến độ realtime của đối thủ</b> (thanh “Rival 9/20”) để tạo áp lực đua.</li>
+    </ul>
+    <p class="note">Biến thể có thể thử: Best-of-3 màn ngắn; hoặc “first to clear” thuần tốc độ; hoặc tính điểm = mũi tên gỡ + bonus combo liên tiếp.</p>
+  </section>
+
+  <section>
+    <h2><span class="ico">🏆</span>Hạng &amp; phần thưởng</h2>
+    <div class="twocol">
+      <div>
+        <ul class="rules">
+          <li>Thắng <b>+cúp</b>, thua <b>−cúp</b> (kiểu trophy như Clash/MatchMaster). Cúp quyết định <b>hạng</b>.</li>
+          <li>Bậc hạng: <b>Bronze → Silver → Gold → Diamond</b> (mở rộng sau). Tận dụng khung <b>Leagues</b> đã có sẵn trong game.</li>
+          <li>Thắng nhận <b>vàng</b> (vd +50) để tiêu ở meta; có thể có <b>vé/phí cược</b> vàng mỗi trận để tạo sức nặng.</li>
+          <li>Mốc hạng cho thưởng rương / khung avatar / theme — vòng quay giữ chân.</li>
+        </ul>
+      </div>
+      <div class="step"><div class="frame"><img src="images/pvp/ladder.png" alt="Ranks"></div><div class="cap"><p>Bảng hạng “Arena Ranks” — cúp đẩy người chơi lên/xuống bậc.</p></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="ico">🎯</span>Khác gì core hiện tại?</h2>
+    <p class="lead">Luật trượt &amp; thao tác tap <b>giữ nguyên</b>. Cái mới là <b>khung đối kháng</b>: ghép trận, đếm giờ, so điểm, cúp/hạng.</p>
+    <div class="twocol">
+      <div class="box old"><h4>Core gốc (Solo)</h4><ul>
+        <li>Chơi một mình, không giới hạn giờ.</li>
+        <li>Thắng = dọn sạch bàn.</li>
+        <li>Tiến độ tuyến tính qua các level.</li>
+      </ul></div>
+      <div class="box new"><h4>PvP Arena</h4><ul>
+        <li>Đối đầu 2 người, <b>đếm giờ</b>.</li>
+        <li>Thắng = <b>gỡ nhiều hơn</b> đối thủ.</li>
+        <li><b>Cúp + hạng + vàng</b> theo kết quả trận.</li>
+      </ul></div>
+    </div>
+    <div class="tagchips"><span>Khung đối kháng mới</span><span>Luật trượt: giữ nguyên</span><span>Thao tác tap: giữ nguyên</span><span>Gắn meta Leagues</span></div>
+  </section>
+
+  <section>
+    <h2><span class="ico">⚙️</span>Triển khai — chọn đường đi (quan trọng)</h2>
+    <p class="lead">Real-time PvP thật cần <b>backend + netcode</b> — đây là phần nặng nhất. Đề xuất chia 2 pha để giảm rủi ro:</p>
+    <div class="mvp">
+      <div class="m m1"><b>Pha 1 — MVP “Ghost Race” <span class="tag go">làm trước</span></b>
+        Đua <b>bất đồng bộ</b>: đối thủ là <b>bản replay</b> của một người chơi khác (hoặc <b>bot</b> theo nhịp). Bạn thấy “bóng ma” tiến độ của họ chạy song song. <b>Không cần netcode realtime</b> — chỉ cần lưu/replay chuỗi nước đi + thời điểm. Cảm giác đua y như thật, ship nhanh, ít rủi ro.</div>
+      <div class="m m2"><b>Pha 2 — Real-time thật <span class="tag later">sau khi validate</span></b>
+        Matchmaking online + đồng bộ realtime (WebSocket/Photon/relay). Server xác thực kết quả (anti-cheat), tính cúp, chống ngắt mạng. Chỉ đầu tư khi Pha 1 chứng minh người chơi thích chế độ đua.</div>
+    </div>
+    <div class="impl" style="margin-top:16px">
+      <ol>
+        <li><b>Tái dùng core</b>: cùng <code>GameState</code>/<code>ArrowView</code>/luật trượt; chỉ thêm lớp “match”.</li>
+        <li><b>Điểm số</b>: <code>arrowsCleared</code> đếm mỗi lần một mũi tên thoát; gửi/đối chiếu khi hết giờ.</li>
+        <li><b>Đối thủ</b>: Pha 1 = phát lại <code>(moveIndex, timestamp)</code> đã ghi; Pha 2 = state sync qua server.</li>
+        <li><b>Cúp/hạng</b>: hàm <code>trophyDelta(win/lose, gap)</code>; lưu vào progress; map cúp → tier để hiển thị Arena Ranks.</li>
+        <li><b>Công bằng</b>: cùng seed/level cho cả hai; cùng thời gian; ẩn bàn đối thủ ở mức chi tiết, chỉ lộ tiến độ.</li>
+        <li><b>Chống gian lận</b> (Pha 2): server-authoritative điểm, giới hạn tốc độ tap hợp lý.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="ico">💡</span>Vì sao mạnh — và rủi ro</h2>
+    <div class="why">
+      <div class="w"><b>Giữ chân &amp; đua hạng</b><p>Cạnh tranh + leo hạng tạo lý do quay lại mỗi ngày, vòng đời dài hơn solo.</p></div>
+      <div class="w"><b>Kiếm tiền tự nhiên</b><p>Phí cược vàng, rương theo hạng, mùa giải (season pass), khung/cosmetic — không cần ép pay-to-win.</p></div>
+      <div class="w"><b>Tái dùng core cao</b><p>Không đổi gameplay cốt lõi → ghép chế độ mới lên nền sẵn có, kho level dùng lại được.</p></div>
+      <div class="w"><b>Ship dần</b><p>Ghost-race ra trước, validate nhu cầu trước khi đổ tiền vào netcode realtime.</p></div>
+    </div>
+    <p class="risk">
+      <b>⚠ Câu hỏi mở cần chốt:</b> độ phức tạp &amp; chi phí netcode realtime; pool người chơi nhỏ lúc đầu (→ dùng bot/ghost để luôn có đối thủ); cân bằng cúp ăn/mất; chống gian lận tốc độ; xử lý ngắt mạng giữa trận.
+    </p>
+  </section>
+
+  <p class="note" style="text-align:center">Ảnh mock dựng bằng OpenArt (Nano Banana 2, img2image từ screenshot Level thật) — minh hoạ ý tưởng, chưa phải build. Đây là <b>concept sơ bộ</b> để team thảo luận.</p>
+
+</div>
+<footer>github.com/global-omg/showcase · Arrow Puzzle — PvP Arena concept</footer>
+</body>
+</html>

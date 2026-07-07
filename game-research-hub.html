@@ -101,6 +101,8 @@
 <a class="nav-item" data-id="subgenre" href="#subgenre"><span class="nav-ico">🧩</span><span class="nav-txt">Subgenre dễ làm — tăng install 3 tháng</span></a>
 <div class="nav-group">Hồ sơ chuyên sâu</div>
 <a class="nav-item" data-id="block_blast" href="#block_blast"><span class="nav-ico">🟦</span><span class="nav-txt">Dòng game Block Blast — Phân tích thị trường</span></a>
+<a class="nav-item" data-id="tilematch" href="#tilematch"><span class="nav-ico">🀄</span><span class="nav-txt">Tile-Match / Tile Clear — dòng game</span></a>
+<a class="nav-item" data-id="tilematch" href="#tilematch"><span class="nav-ico">🀄</span><span class="nav-txt">Tile-Match / Tile Clear — dòng game</span></a>
 <a class="nav-item" data-id="puzzle" href="#puzzle"><span class="nav-ico">🔍</span><span class="nav-txt">Puzzle deduction — game tương tự trên store</span></a>
   </nav>
 </aside>
@@ -149,6 +151,24 @@
     <div class="card-title">Dòng game Block Blast — Phân tích thị trường</div>
     <div class="card-desc">Dossier dòng Block Blast (grid 8×8, kéo-thả, ăn hàng): đối đầu Block Blast! vs Woodoku Blast, toàn bộ roster cùng dòng và nhận định sơ bộ.</div>
     <div class="card-meta"><span class="tag">Dữ liệu công khai</span><span class="tag tag-date">Cập nhật 07/07/2026</span></div>
+  </div>
+  <div class="card-arrow">→</div>
+</button>
+<button class="card" data-id="tilematch">
+  <div class="card-ico">🀄</div>
+  <div class="card-body">
+    <div class="card-title">Tile-Match / Tile Clear — nghiên cứu dòng game</div>
+    <div class="card-desc">Từ Tile Explorer (+50% install T6): 25 game cùng dòng tile-match, tăng trưởng 1 tháng, sản phẩm nổi bật gom theo gameplay, + 10 ý tưởng reskin theme &amp; 10 ý tưởng refresh gameplay chill.</div>
+    <div class="card-meta"><span class="tag">Sensor Tower</span><span class="tag tag-date">Cập nhật 07/07/2026</span></div>
+  </div>
+  <div class="card-arrow">→</div>
+</button>
+<button class="card" data-id="tilematch">
+  <div class="card-ico">🀄</div>
+  <div class="card-body">
+    <div class="card-title">Tile-Match / Tile Clear — nghiên cứu dòng game</div>
+    <div class="card-desc">Từ Tile Explorer (+50% install T6): 25 game cùng dòng tile-match, tăng trưởng 1 tháng, sản phẩm nổi bật gom theo gameplay, + 10 ý tưởng reskin theme &amp; 10 ý tưởng refresh gameplay chill.</div>
+    <div class="card-meta"><span class="tag">Sensor Tower</span><span class="tag tag-date">Cập nhật 07/07/2026</span></div>
   </div>
   <div class="card-arrow">→</div>
 </button>
@@ -2734,8 +2754,334 @@ footer{margin-top:36px;color:var(--muted);font-size:12px;border-top:1px solid va
 <footer>Nguồn: Apple App Store Search/Lookup API (miễn phí) + Sensor Tower sales_report_estimates. Install/Revenue là ƯỚC LƯỢNG iOS·US 6 tháng, chưa gồm Android/worldwide.</footer>
 </div></body></html></script>
 
+<script type="text/html" id="src-tilematch">
+<style>
+:root{--bg:#0d1117;--panel:#161b22;--panel2:#1c2330;--line:#2a3340;--text:#e6edf3;--muted:#8b98a9;--accent:#3fb950;--accent2:#58a6ff;--warn:#e3b341;--red:#f85149;--purple:#a371f7}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.5}
+.wrap{max-width:1180px;margin:0 auto;padding:26px 22px 70px}
+h1{font-size:23px;margin:0 0 6px}.sub{color:var(--muted);font-size:13px;margin-bottom:12px}
+.tag{display:inline-block;background:var(--panel2);border:1px solid var(--line);color:var(--muted);font-size:12px;padding:3px 10px;border-radius:20px;margin:6px 6px 0 0}
+.seedbox{margin:16px 0;background:linear-gradient(90deg,rgba(163,113,247,.14),rgba(88,166,255,.06));border:1px solid var(--purple);border-radius:12px;padding:14px 16px;font-size:14px}
+.seedbox b{color:#fff}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:18px 0}
+@media(max-width:800px){.cards{grid-template-columns:repeat(2,1fr)}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px}.card .n{font-size:24px;font-weight:800;color:var(--accent)}.card .l{font-size:12px;color:var(--muted);margin-top:3px}
+h2{font-size:17px;margin:30px 0 4px}.h2s{color:var(--muted);font-size:12.5px;margin-bottom:12px}
+.bars{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.bar{display:grid;grid-template-columns:180px 1fr 62px 54px;gap:10px;align-items:center;padding:4px 0;font-size:12.5px}
+.bar .bn{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#c9d4e0}
+.bar .track{background:var(--panel2);border-radius:6px;height:12px;overflow:hidden}.bar .fill{height:100%;border-radius:6px}
+.bar .bv{text-align:right;font-weight:700}.bar .bi{text-align:right;color:var(--muted)}
+.mech-h{display:flex;align-items:baseline;gap:10px;margin:28px 0 4px;padding-bottom:6px;border-bottom:2px solid var(--accent2)}.mech-h .mn{font-size:16.5px;font-weight:800}.mech-h .mc{font-size:12px;color:var(--muted)}
+.md{color:var(--muted);font-size:12.5px;margin-bottom:12px}
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:13px}
+.gcard{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:13px;display:flex;flex-direction:column;gap:10px}
+.gcard.seed{border-color:var(--purple);box-shadow:0 0 0 1px var(--purple)}
+.gc-top{display:flex;gap:12px}.ico{width:70px;height:70px;border-radius:15px;flex-shrink:0;object-fit:cover;background:var(--panel2);border:1px solid var(--line)}
+.body{min-width:0}.top{display:flex;align-items:center;gap:6px;flex-wrap:wrap}.gt{font-weight:700;font-size:14px}
+.pill{font-size:10px;padding:1px 7px;border-radius:20px;background:var(--panel2);border:1px solid var(--line);color:var(--muted)}
+.pill.cat{background:rgba(88,166,255,.12);border-color:var(--accent2);color:var(--accent2)}
+.pill.seedp{background:rgba(163,113,247,.18);border-color:var(--purple);color:#d7c4ff}
+.gp{font-size:12.3px;color:#c1ccd8;margin-top:5px}
+.meta,.meta2{font-size:11.3px;color:var(--muted);margin-top:6px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}.meta b{color:var(--text)}
+.pub2{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:140px}
+.meta2.stat{border-top:1px dashed var(--line);padding-top:6px}.meta2.stat b{color:var(--accent)}
+.plat{background:rgba(88,166,255,.15);border:1px solid var(--accent2);color:var(--accent2);border-radius:20px;padding:1px 7px;font-size:10px}
+.mom.up{color:var(--accent);font-weight:700}.mom.down{color:var(--red);font-weight:700}.mom.flat{color:var(--muted)}
+.win{opacity:.7;font-size:10px}
+.shots{display:flex;gap:6px;overflow-x:auto;padding-bottom:2px}.sh{height:150px;width:auto;border-radius:9px;border:1px solid var(--line);background:var(--panel2);flex-shrink:0;cursor:zoom-in}
+.ideas{display:grid;grid-template-columns:repeat(2,1fr);gap:11px;margin-top:6px}@media(max-width:760px){.ideas{grid-template-columns:1fr}}
+.idea{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--warn);border-radius:10px;padding:12px 14px}
+.idea.chill{border-left-color:var(--accent)}
+.idea .it{font-weight:700;font-size:13.5px;color:#fff}.idea .id{font-size:12.5px;color:#c1ccd8;margin-top:4px}
+.idea .sh{height:auto;width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:10px;margin-bottom:10px;display:block;border:1px solid var(--line)}
+footer{margin-top:40px;color:var(--muted);font-size:12px;border-top:1px solid var(--line);padding-top:14px}
+</style>
+<div class="wrap">
+<h1>🀄 Dòng game Tile-Match / Tile Clear — nghiên cứu &amp; cơ hội</h1>
+<div class="sub">Khởi từ <b>Tile Explorer: Tiles Clear!</b> (Oakever Games) · Install &amp; Revenue: <b>Sensor Tower</b> (iOS Worldwide) · Tăng trưởng: <b>tháng 6 so tháng 5/2026</b> · Genre &amp; ảnh in-game: iOS App Store · 25 game cùng/cận gameplay</div>
+<div>
+<span class="tag">25 game</span><span class="tag">install tháng 6 vs tháng 5</span><span class="tag">3 biến thể gameplay</span><span class="tag">Ngày tạo: 07/07/2026</span>
+</div>
+
+<div class="seedbox">💜 <b>Tile Explorer: Tiles Clear!</b> — install tháng 6: <b>713K</b> (⭐ 4.9), tăng <b style="color:var(--accent)">+50% so tháng 5</b> → <b>ĐANG TĂNG</b> và là game install cao nhất trong nhóm tile-clear thuần. Cùng nhà (Oakever) với Meowdoku! — thế mạnh mảng puzzle cozy.</div>
+
+<div class="cards">
+<div class="card"><div class="n">1.7M</div><div class="l">tổng install nhóm (tháng 6, WW)</div></div>
+<div class="card"><div class="n">11/25</div><div class="l">game tăng install so tháng 5</div></div>
+<div class="card"><div class="n">+50%</div><div class="l">Tile Explorer MoM (đang lên)</div></div>
+<div class="card"><div class="n">+167%</div><div class="l">Tile Voyage — tăng nhanh nhất</div></div>
+</div>
+
+<h2>📈 Install có tăng trong 1 tháng qua không?</h2>
+<div class="h2s">Cột = %thay đổi install tháng 6 so tháng 5 (chỉ game có nền ≥5K install/tháng để tránh nhiễu). Xanh = tăng, đỏ = giảm; số bên phải = install tháng 6.</div>
+<div class="bars"><div class="bar"><span class="bn">Tile Voyage: Match Puzzle</span><div class="track"><div class="fill" style="width:100%;background:var(--accent)"></div></div><span class="bv" style="color:var(--accent)">+167%</span><span class="bi">135K</span></div><div class="bar"><span class="bn">Zen Tiles - Mahjong Match</span><div class="track"><div class="fill" style="width:77.84431137724552%;background:var(--accent)"></div></div><span class="bv" style="color:var(--accent)">+130%</span><span class="bi">73K</span></div><div class="bar"><span class="bn">Tile Explorer: Tiles Clear!</span><div class="track"><div class="fill" style="width:29.94011976047904%;background:var(--accent)"></div></div><span class="bv" style="color:var(--accent)">+50%</span><span class="bi">713K</span></div><div class="bar"><span class="bn">Triple Match 3D</span><div class="track"><div class="fill" style="width:16.766467065868262%;background:var(--accent)"></div></div><span class="bv" style="color:var(--accent)">+28%</span><span class="bi">62K</span></div><div class="bar"><span class="bn">Tile Vacation - Triple Match</span><div class="track"><div class="fill" style="width:1.1976047904191618%;background:var(--accent)"></div></div><span class="bv" style="color:var(--accent)">+2%</span><span class="bi">118K</span></div><div class="bar"><span class="bn">Match Triple 3D: Matching Tile</span><div class="track"><div class="fill" style="width:0.5988023952095809%;background:var(--accent)"></div></div><span class="bv" style="color:var(--accent)">+1%</span><span class="bi">5K</span></div><div class="bar"><span class="bn">Match Factory!</span><div class="track"><div class="fill" style="width:0.5988023952095809%;background:var(--red)"></div></div><span class="bv" style="color:var(--red)">-1%</span><span class="bi">315K</span></div><div class="bar"><span class="bn">Tile Match -Triple puzzle game</span><div class="track"><div class="fill" style="width:0.5988023952095809%;background:var(--red)"></div></div><span class="bv" style="color:var(--red)">-1%</span><span class="bi">48K</span></div><div class="bar"><span class="bn">3 Tiles: Connect Tile Matching</span><div class="track"><div class="fill" style="width:1.7964071856287425%;background:var(--red)"></div></div><span class="bv" style="color:var(--red)">-3%</span><span class="bi">17K</span></div><div class="bar"><span class="bn">Triple Tile: Match Puzzle Game</span><div class="track"><div class="fill" style="width:2.9940119760479043%;background:var(--red)"></div></div><span class="bv" style="color:var(--red)">-5%</span><span class="bi">33K</span></div><div class="bar"><span class="bn">Tile Family®:Match Puzzle Game</span><div class="track"><div class="fill" style="width:13.77245508982036%;background:var(--red)"></div></div><span class="bv" style="color:var(--red)">-23%</span><span class="bi">111K</span></div><div class="bar"><span class="bn">Tile Burst - Match Puzzle</span><div class="track"><div class="fill" style="width:16.16766467065868%;background:var(--red)"></div></div><span class="bv" style="color:var(--red)">-27%</span><span class="bi">15K</span></div></div>
+<div class="md" style="margin-top:10px">➜ <b>Câu trả lời: CÓ</b> — dòng tile-match vẫn sống khỏe. Người dẫn đầu <b>Tile Explorer +50%</b>, cùng loạt tân binh tăng mạnh (<b>Tile Voyage +167%</b>, <b>Zen Tiles +130%</b>, <b>Triple Match 3D +28%</b>). Ngược lại nhiều game đời cũ (Zen Match, Tile Garden, Tile Busters) đã hạ nhiệt về gần 0 install mới — cửa cho sản phẩm mới làm tốt hơn vẫn mở.</div>
+
+<h2>🏆 Sản phẩm nổi bật (gom theo genre › gameplay)</h2>
+<div class="h2s">Cap-1: đều thuộc genre <b>Puzzle/Casual tile-match</b> (nhãn danh mục iOS trên mỗi thẻ). Cap-2: chia theo biến thể gameplay. Mỗi thẻ đủ: tên · icon · nhà phát hành · platform · thứ hạng install · ảnh gameplay (bấm để zoom) · mô tả · install tháng 6 + %MoM + revenue 90 ngày.</div>
+<div class="mech-h"><span class="mn">🀄 Triple-tile clear (lõi — giống Tile Explorer)</span><span class="mc">20 game</span></div><div class="md">Chạm 3 tile giống nhau → gom vào khay 7 ô → dọn sạch bàn. Nhịp chậm, thỏa mãn, sưu tầm.</div><div class="gallery"><div class="gcard seed">
+  <div class="gc-top"><img class="ico" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/22/fb/bf/22fbbf18-7b96-1e15-7a07-cde147312147/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" loading="lazy" onerror="this.style.opacity=.15">
+    <div class="body">
+      <div class="top"><span class="gt">Tile Explorer: Tiles Clear!</span> <span class="pill seedp">BẠN THÍCH</span><span class="pill cat">Casual</span></div>
+      <div class="gp">Looking for a relaxing and addictive tile matching adventure? Tile Explorer is your ultimate destination! Dive into the world of tile puzzles where ex…</div>
+      <div class="meta"><span>#1 install T6</span><span>⭐ 4.9</span><span class="pub2">Oakever Games</span></div>
+      <div class="meta2 stat"><span class="plat">iOS + Android</span><span><b>713K</b> install T6</span><span class="mom up">▲ +50%</span><span><b>$601K</b> rev 90d</span><span class="win">iOS·WW</span></div>
+    </div></div>
+  <div class="shots"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/4e/7e/38/4e7e38f8-6ac6-434b-5163-6425ce503a9f/3d696d41-50f1-4f42-a117-1326236dc17e_1.jpg/392x696bb.jpg" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/bf/0c/03/bf0c034a-602a-f787-65a0-b9801ddd9f7e/aa5511d4-4037-4131-a184-e8f71de2b42b_2.jpg/392x696bb.jpg" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/4f/41/a0/4f41a0fd-3c60-b991-0b53-8b9aa4645623/9dd73ea4-9aa7-4fea-9371-0ecdcbc7bc97_3.jpg/392x696bb.jpg" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/55/5c/e3/555ce327-b6c2-fbf3-8059-0c70845461da/d47fb63c-d587-44fb-8db1-081dd594aa36_4.jpg/392x696bb.jpg" loading="lazy" onerror="this.remove()"></div>
+</div><div class="gcard">
+  <div class="gc-top"><img class="ico" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/b9/84/6f/b9846f00-91e7-7d09-c3bd-a01106e8642d/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" loading="lazy" onerror="this.style.opacity=.15">
+    <div class="body">
+      <div class="top"><span class="gt">Tile Voyage: Match Puzzle</span><span class="pill cat">Puzzle</span></div>
+      <div class="gp">Welcome to Tile Voyage – where tile matching meets pure relaxation! If you love classic tile games and match 3 puzzles, you&#x27;ve found your new favorite…</div>
+      <div class="meta"><span>#3 install T6</span><span>⭐ 4.93</span><span class="pub2">UniRise Studio</span></div>
+      <div class="meta2 stat"><span class="plat">iOS + Android</span><span><b>135K</b> install T6</span><span class="mom up">▲ +167%</span><span><b>$281</b> rev 90d</span><span class="win">iOS·WW</span></div>
+    </div></div>
+  <div class="shots"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/88/5d/db/885ddb34-757a-29c4-f25c-7ddc6373a849/Gp_Pm_2.jpg/320x0w.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/ef/23/32/ef233245-31a7-099a-6472-7ed6b269fd33/Gp_Pm_1.jpg/320x0w.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/25/30/72/253072d8-8387-548e-15bd-9ffb82ecaa9c/Gp_Pm_4.jpg/320x0w.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/56/fb/ff/56fbff71-89fb-5434-bee5-75e82cbc80b3/Gp_Pm_3.jpg/320x0w.png" loading="lazy" onerror="this.remove()"></div>
+</div><div class="gcard">
+  <div class="gc-top"><img class="ico" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/b6/1c/87/b61c873a-6673-3ee0-96b6-054ddb34a5bd/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" loading="lazy" onerror="this.style.opacity=.15">
+    <div class="body">
+      <div class="top"><span class="gt">Tile Vacation - Triple Match</span><span class="pill cat">Casual</span></div>
+      <div class="gp">Are you ready for a brand-new adventure in tile games? Look no further than Tile Vacation – the ultimate tile match and tile puzzle experience for fan…</div>
+      <div class="meta"><span>#4 install T6</span><span>⭐ 4.8</span><span class="pub2">VisionStudio</span></div>
+      <div class="meta2 stat"><span class="plat">iOS + Android</span><span><b>118K</b> install T6</span><span class="mom up">▲ +2%</span><span><b>$338</b> rev 90d</span><span class="win">iOS·WW</span></div>
+    </div></div>
+  <div class="shots"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/45/52/ee/4552ee9d-e891-ba80-23f1-afd567a33f3d/_U72ec_U7acb_U65e51.jpg/320x0w.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/1f/37/9f/1f379f31-ed25-a184-21f3-c2b7b3139f89/_U72ec_U7acb_U65e52.jpg/320x0w.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/a0/6a/7b/a06a7b59-8d50-3aa9-4ae8-5b8075796224/_U72ec_U7acb_U65e53.jpg/320x0w.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/e5/f8/d1/e5f8d171-ef21-1b72-ea18-d567f9d0e097/_U72ec_U7acb_U65e54.jpg/320x0w.png" loading="lazy" onerror="this.remove()"></div>
+</div><div class="gcard">
+  <div class="gc-top"><img class="ico" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/56/77/e1/5677e14e-a000-d85c-6c96-9e86bdb42ca6/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" loading="lazy" onerror="this.style.opacity=.15">
+    <div class="body">
+      <div class="top"><span class="gt">Tile Family®:Match Puzzle Game</span><span class="pill cat">Puzzle</span></div>
+      <div class="gp">This tile game is an addictive yet challenging tile matching game. It will help you to train your brain and calm your anxiety. Numerous levels are wai…</div>
+      <div class="meta"><span>#5 install T6</span><span>⭐ 4.72</span><span class="pub2">Playflux</span></div>
+      <div class="meta2 stat"><span class="plat">iOS + Android</span><span><b>111K</b> install T6</span><span class="mom down">▼ -23%</span><span><b>$3.3M</b> rev 90d</span><span class="win">iOS·WW</span></div>
+    </div></div>
+  <div class="shots"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/f7/45/be/f745bef7-bcad-cae4-68ee-96dec1715ae2/1.png/320x0w.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/bf/cd/80/bfcd8090-7897-d233-25a4-74638cd34d20/2.png/320x0w.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/5a/f3/1b/5af31b93-03db-0c79-e201-9dafdf78ec49/3.png/320x0w.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/cb/48/a0/cb48a00b-e582-c020-0f5a-5c825bcf8059/4.png/320x0w.png" loading="lazy" onerror="this.remove()"></div>
+</div><div class="gcard">
+  <div class="gc-top"><img class="ico" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/9a/b3/d0/9ab3d070-d97b-8b52-9607-ca703d431d8c/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" loading="lazy" onerror="this.style.opacity=.15">
+    <div class="body">
+      <div class="top"><span class="gt">Triple Match 3D</span><span class="pill cat">Puzzle</span></div>
+      <div class="gp">Spend hours of relaxing fun playing Triple Match: A 3D puzzle matching game. Sharpen your sorting skills, become a matching master and clear the board…</div>
+      <div class="meta"><span>#7 install T6</span><span>⭐ 4.92</span><span class="pub2">Boombox Games LTD</span></div>
+      <div class="meta2 stat"><span class="plat">iOS + Android</span><span><b>62K</b> install T6</span><span class="mom up">▲ +28%</span><span><b>$6.2M</b> rev 90d</span><span class="win">iOS·WW</span></div>
+    </div></div>
+  <div class="shots"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/7c/cc/a0/7ccca0c9-e7ba-1310-1e66-81d4ea6f0503/1290X2796.jpg/320x0w.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/d4/4d/52/d44d521e-52bc-3747-3cbf-61c3c94f07a5/Cats_1290X2796-screen.png/320x0w.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/80/ec/30/80ec3069-f05d-e4f2-8434-34c8f8d687b5/Ducks_1290X2796-screen.png/320x0w.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/09/26/36/092636e6-ddc1-e246-2cf4-bb9d1ccc830e/Dogs_1290X2796-screen.png/320x0w.png" loading="lazy" onerror="this.remove()"></div>
+</div><div class="gcard">
+  <div class="gc-top"><img class="ico" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/60/5e/a3/605ea3e9-d348-b861-5fa2-a2a1fa27f9ae/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" loading="lazy" onerror="this.style.opacity=.15">
+    <div class="body">
+      <div class="top"><span class="gt">Tile Match -Triple puzzle game</span><span class="pill cat">Casual</span></div>
+      <div class="gp">Introducing &quot;Tile Match&quot; – the captivating tile-matching puzzle game that will immerse you in a world of triple tile-tapping challenges and brain-teas…</div>
+      <div class="meta"><span>#8 install T6</span><span>⭐ 4.93</span><span class="pub2">PlaySimple Games Pte Ltd</span></div>
+      <div class="meta2 stat"><span class="plat">iOS + Android</span><span><b>48K</b> install T6</span><span class="mom down">▼ -1%</span><span><b>$14K</b> rev 90d</span><span class="win">iOS·WW</span></div>
+    </div></div>
+  <div class="shots"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/69/c3/81/69c38191-58c7-6685-38b4-59374b6519d1/sp_GB_GameBg71_Variant2-2.jpg/320x0w.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/f3/b4/ab/f3b4abde-8854-af6b-986d-f75682c5a74b/sp_GB_GameBg71_Variant2-4.jpg/320x0w.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/d0/27/b1/d027b197-de42-1e5e-c7db-1bd47bef85cc/sp_GB_GameBg71_Variant2-5.jpg/320x0w.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/a9/e4/f9/a9e4f927-cfae-469c-cc76-f9cbde3638fa/sp_GB_GameBg71_Variant2.jpg/320x0w.png" loading="lazy" onerror="this.remove()"></div>
+</div><div class="gcard">
+  <div class="gc-top"><img class="ico" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/32/d5/ec/32d5ec5f-f18c-0c67-32f3-91693d3eee55/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" loading="lazy" onerror="this.style.opacity=.15">
+    <div class="body">
+      <div class="top"><span class="gt">Triple Tile: Match Puzzle Game</span><span class="pill cat">Puzzle</span></div>
+      <div class="gp">Discover Triple Tile – your new favorite tile match puzzle game! Step into the relaxing yet exciting world of puzzle games with Triple Tile, the ultim…</div>
+      <div class="meta"><span>#9 install T6</span><span>⭐ 4.86</span><span class="pub2">Tripledot Studios</span></div>
+      <div class="meta2 stat"><span class="plat">iOS + Android</span><span><b>33K</b> install T6</span><span class="mom down">▼ -5%</span><span><b>—</b> rev 90d</span><span class="win">iOS·WW</span></div>
+    </div></div>
+  <div class="shots"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/77/0e/a6/770ea642-f934-dffb-d8d9-58ee940b51ec/ecacb114-a2cd-4773-ae43-22724baceb31_022_TPL_IOS_Aligned_Localisations_Screeshot_EN_2048x2732_1.png/576x768bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/47/5c/93/475c932f-bfe6-3e29-531c-c6bcd54e2e06/9b754e01-510d-4879-9820-84b7afa5628d_022_TPL_IOS_Aligned_Localisations_Screeshot_EN_2048x2732_2.png/576x768bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/b4/c4/d4/b4c4d498-c71d-6a95-1a00-94a6283b0541/67b13c15-9efe-413d-8e05-6d24b497ce12_003_TRP_Screenshot_2048x2732_2.png/576x768bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c4/64/1a/c4641a7d-c913-06f1-70c7-62ca9d85fde4/8a71f2db-1000-4be9-921e-49a01fff8cb6_004_TRP_Screenshot_2048x2732_1.png/576x768bb.png" loading="lazy" onerror="this.remove()"></div>
+</div><div class="gcard">
+  <div class="gc-top"><img class="ico" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/80/8d/2c/808d2c9e-7a02-14bb-2a6c-a6ce4f5045e2/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" loading="lazy" onerror="this.style.opacity=.15">
+    <div class="body">
+      <div class="top"><span class="gt">Tile Burst - Match Puzzle</span><span class="pill cat">Puzzle</span></div>
+      <div class="gp">Enjoy the addictive Tile Burst Match Puzzle Game! Casual and relaxing gaming awaits - train your brain with our classic triple match puzzle game! Let&#x27;…</div>
+      <div class="meta"><span>#11 install T6</span><span>⭐ 4.93</span><span class="pub2">Guru Smart Holding Limited</span></div>
+      <div class="meta2 stat"><span class="plat">iOS + Android</span><span><b>15K</b> install T6</span><span class="mom down">▼ -27%</span><span><b>$69</b> rev 90d</span><span class="win">iOS·WW</span></div>
+    </div></div>
+  <div class="shots"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/f6/70/f2/f670f2b9-d2a5-ff49-0f57-e3f544858629/1.jpg/320x0w.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/88/12/8f/88128fb1-0508-7119-64de-45f261cbd914/2.jpg/320x0w.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/1c/ab/41/1cab4162-0ca5-565c-a374-cbb5f1fbf1f7/3.jpg/320x0w.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/27/80/59/2780595c-10b3-bd24-d6e9-43ba61165972/4.jpg/320x0w.png" loading="lazy" onerror="this.remove()"></div>
+</div><div class="gcard">
+  <div class="gc-top"><img class="ico" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/b6/6d/84/b66d84ed-bdbc-bc13-0e2f-0083cd004578/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" loading="lazy" onerror="this.style.opacity=.15">
+    <div class="body">
+      <div class="top"><span class="gt">Match Triple 3D: Matching Tile</span><span class="pill cat">Family</span></div>
+      <div class="gp">What is new for Match Triple 3D - Matching Tile? Not like classic tile puzzle &amp; mahjong games, Match Triple 3D not only connects your brain to logical…</div>
+      <div class="meta"><span>#12 install T6</span><span>⭐ 4.7</span><span class="pub2">LIHUHU PTE. LTD.</span></div>
+      <div class="meta2 stat"><span class="plat">iOS + Android</span><span><b>5K</b> install T6</span><span class="mom up">▲ +1%</span><span><b>$250K</b> rev 90d</span><span class="win">iOS·WW</span></div>
+    </div></div>
+  <div class="shots"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/f6/50/35/f6503583-6030-cfed-91b8-cd335afa1296/SS1.jpg/392x696bb.jpg" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/75/a7/fd/75a7fd52-0865-a096-98eb-3d500c05b9d6/SS2.jpg/392x696bb.jpg" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/5f/54/59/5f545919-bb35-467e-bfdd-8e913730ab92/SS3.jpg/392x696bb.jpg" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/9a/c5/17/9ac51730-43b9-0d6a-4cf9-4ff76c7ecbd3/SS4.jpg/392x696bb.jpg" loading="lazy" onerror="this.remove()"></div>
+</div><div class="gcard">
+  <div class="gc-top"><img class="ico" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/b7/b1/ec/b7b1ec4b-d49e-58e4-87d8-278f2228fead/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg" loading="lazy" onerror="this.style.opacity=.15">
+    <div class="body">
+      <div class="top"><span class="gt">Tile Match Story</span><span class="pill cat">Casual</span></div>
+      <div class="gp">Tile Match Ultimate Brain-Teasing Tile Adventure! Super fun yet challenging mahjong inspired triple tile matching game. Match tiles and help families …</div>
+      <div class="meta"><span>#13 install T6</span><span>⭐ 4.91</span><span class="pub2">Shanghai Zhenglang Technology Co., Ltd.</span></div>
+      <div class="meta2 stat"><span class="plat">iOS + Android</span><span><b>5K</b> install T6</span><span class="mom down">▼ -10%</span><span><b>$4K</b> rev 90d</span><span class="win">iOS·WW</span></div>
+    </div></div>
+  <div class="shots"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/48/e9/a3/48e9a316-40ad-05b9-131d-69b4c10a83ab/2-1290x2796.png/320x0w.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/e2/4b/92/e24b9216-1ecd-d3c2-f808-5dad0c1408b8/653f9164-9811-4c8c-b395-a18f76c93edb_2-1290x2796.png/320x0w.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/79/13/27/791327a5-22f7-5e15-167e-76ba7438063a/3-1290x2796.png/320x0w.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/e3/14/76/e314765a-4bfb-096f-6449-b235de5d0e61/b0fa2da4-8834-4c7a-8e02-ef810fea82f1_6.7_U82f1_U5bf8_1290x2796.png/320x0w.png" loading="lazy" onerror="this.remove()"></div>
+</div><div class="gcard">
+  <div class="gc-top"><img class="ico" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/bb/1b/b2/bb1bb28e-e5fe-462a-f72a-12fe203a6828/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" loading="lazy" onerror="this.style.opacity=.15">
+    <div class="body">
+      <div class="top"><span class="gt">Zen Blossom: Flower Tile Match</span><span class="pill cat">Board</span></div>
+      <div class="gp">Match 3 same flower tiles to clear them and score. Match as fast as possible to score more starts. Match all the tiles in the limited time the pass le…</div>
+      <div class="meta"><span>#14 install T6</span><span>⭐ 4.73</span><span class="pub2">BRAINWORKS PUBLISHING PTE. LTD.</span></div>
+      <div class="meta2 stat"><span class="plat">iOS + Android</span><span><b>4K</b> install T6</span><span class="mom down">▼ -37%</span><span><b>$25K</b> rev 90d</span><span class="win">iOS·WW</span></div>
+    </div></div>
+  <div class="shots"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/b2/d5/76/b2d576c9-60f6-2101-d721-ed4b30f48401/ZB_SS1_Iphone.jpg/392x696bb.jpg" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/db/ce/c2/dbcec21c-1341-724e-5716-145d2e189db9/ZB_SS2_Iphone.jpg/392x696bb.jpg" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/b9/d9/b7/b9d9b770-6c85-a631-5fa6-ab9bfbbd7294/ZB_SS4_Iphone.jpg/392x696bb.jpg" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/0d/31/78/0d317803-938c-6900-8641-bcf79c9e423e/ZB_SS6_Iphone.jpg/392x696bb.jpg" loading="lazy" onerror="this.remove()"></div>
+</div><div class="gcard">
+  <div class="gc-top"><img class="ico" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/94/88/c1/9488c1a2-04ea-e27c-1660-9634aa5f863a/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg" loading="lazy" onerror="this.style.opacity=.15">
+    <div class="body">
+      <div class="top"><span class="gt">Match Tile Scenery</span><span class="pill cat">Puzzle</span></div>
+      <div class="gp">Do you like match tile games? If you enjoy it, Match Tile Scenery will give you a different experience and BIG surprise! Match Tile Scenery is a free …</div>
+      <div class="meta"><span>#16 install T6</span><span>⭐ 4.93</span><span class="pub2">GAMEHAUS PTE. LTD</span></div>
+      <div class="meta2 stat"><span class="plat">iOS + Android</span><span><b>881</b> install T6</span><span class="mom down">▼ -74%</span><span><b>$32K</b> rev 90d</span><span class="win">iOS·WW</span></div>
+    </div></div>
+  <div class="shots"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/15/6e/3e/156e3e50-c275-f5e3-488f-d7330d1db168/31eea1a7-4cba-45c8-8269-ab8d3af8cfd6_1.png/392x696bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/6e/c8/46/6ec8463b-605b-df44-7209-a92ea4d26f0b/7e88a863-b1bd-493f-b9e7-a7506bcff34b_2.png/392x696bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/ba/18/00/ba18008e-7923-f592-81b0-770e246cdf20/8b4f0a6b-173a-4b24-b6c7-7874c28de860_3.png/392x696bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/7a/e9/8d/7ae98ddd-76cc-4a3c-4b6e-6e3bc353c5b1/bf981528-2d9d-4093-8551-1682d0c49ea5__U753b_U677f_1-3.png/392x696bb.png" loading="lazy" onerror="this.remove()"></div>
+</div><div class="gcard">
+  <div class="gc-top"><img class="ico" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/55/d4/fd/55d4fdf4-1f7c-9536-0e90-e210454c79fb/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" loading="lazy" onerror="this.style.opacity=.15">
+    <div class="body">
+      <div class="top"><span class="gt">Match Tile 3D</span><span class="pill cat">Puzzle</span></div>
+      <div class="gp">Did you like our Match 3D game? Where can you match pairs together to clear the screen and win the level? Lion Studios is happy to announce our new tr…</div>
+      <div class="meta"><span>#17 install T6</span><span>⭐ 4.76</span><span class="pub2">Lion Studios Plus</span></div>
+      <div class="meta2 stat"><span class="plat">iOS + Android</span><span><b>489</b> install T6</span><span class="mom up">▲ +4%</span><span><b>$95K</b> rev 90d</span><span class="win">iOS·WW</span></div>
+    </div></div>
+  <div class="shots"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/e6/87/62/e687623e-cc81-365c-aa8f-70253589b798/f623dab7-16e9-4f0f-b97f-1ee203343940_1.jpg/392x696bb.jpg" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/a5/fa/e8/a5fae8de-361f-e24d-da43-d5a12fdfa57a/06920b52-f297-4d5c-8b60-9afdcfe517ab_2.jpg/392x696bb.jpg" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/44/b6/f8/44b6f8d6-57eb-4f78-8a06-f38a979d59ee/037c2721-2557-40be-ac47-54a1ee7575b7_3.jpg/392x696bb.jpg" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/95/44/28/95442841-a3bd-df39-0fd9-84b92cf95622/c732f4b3-4f25-4698-a86a-7f26ae6363c7_4.jpg/392x696bb.jpg" loading="lazy" onerror="this.remove()"></div>
+</div><div class="gcard">
+  <div class="gc-top"><img class="ico" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/32/7c/4d/327c4d78-d028-0277-191c-4a0e567f61bc/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" loading="lazy" onerror="this.style.opacity=.15">
+    <div class="body">
+      <div class="top"><span class="gt">Tile Busters: Match 3 Tiles</span><span class="pill cat">Puzzle</span></div>
+      <div class="gp">Playing just 10 minutes of Tile Busters every day will sharpen your mind. Prepare for challenges of daily life and keep your memory fresh. You will en…</div>
+      <div class="meta"><span>#18 install T6</span><span>⭐ 4.81</span><span class="pub2">Spyke Games</span></div>
+      <div class="meta2 stat"><span class="plat">iOS + Android</span><span><b>192</b> install T6</span><span class="mom down">▼ -29%</span><span><b>$479K</b> rev 90d</span><span class="win">iOS·WW</span></div>
+    </div></div>
+  <div class="shots"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/ec/1c/07/ec1c0704-9475-a1c4-19ae-26c209c7dd58/mavi.png/320x0w.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/a2/8a/4c/a28a4c60-ff8a-c72c-38cd-5d21b8866520/kirmizi.png/320x0w.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/3e/71/5c/3e715cf6-2be1-7baf-16e1-6ef2e1d05f58/sari.png/320x0w.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/82/b2/a0/82b2a0e7-0f64-a34a-ee1e-30f70c5d813e/yesil.png/320x0w.png" loading="lazy" onerror="this.remove()"></div>
+</div><div class="gcard">
+  <div class="gc-top"><img class="ico" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c8/89/b4/c889b475-e9b7-8527-e714-9671cef1d146/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" loading="lazy" onerror="this.style.opacity=.15">
+    <div class="body">
+      <div class="top"><span class="gt">Zen Match - Relaxing Puzzle</span><span class="pill cat">Puzzle</span></div>
+      <div class="gp">Playing Zen Match for 10 minutes a day sharpens your mind and prepares you for your daily life and challenges! Enjoy this tile-matching mahjong game, …</div>
+      <div class="meta"><span>#19 install T6</span><span>⭐ 4.58</span><span class="pub2">Moon Active</span></div>
+      <div class="meta2 stat"><span class="plat">iOS + Android</span><span><b>95</b> install T6</span><span class="mom down">▼ -86%</span><span><b>$1.5M</b> rev 90d</span><span class="win">iOS·WW</span></div>
+    </div></div>
+  <div class="shots"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/00/d5/1c/00d51cb2-ae5a-cae6-3d05-84ad1cd31d35/59336c25-82ee-4154-996b-728a8035ce65_01_ZEN00191_OriginalSet.UI_match_1242x2208_LNG_EN.png/392x696bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/1d/ac/51/1dac518f-2a36-34d5-7fc9-8a7637b4f635/c49be86c-e92a-46c0-8cde-308f3437dd96_02_ZEN00191_OriginalSet.UI_stress_1242x2208_LNG_EN.png/392x696bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/95/60/c4/9560c41a-f8b2-9743-eda5-65820ab646b7/63133540-e2ec-44ff-97b7-4aeab1cc605b_03_ZEN00191_OriginalSet.UI_train_1242x2208_LNG_EN.png/392x696bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/8d/b3/34/8db33450-817a-dc9a-8db1-feaef05a52e3/471675f7-ea6d-4bbe-bfd7-6d09f9654ca3_04_ZEN00191_OriginalSet.UI_bedtime_1242x2208_LNG_EN.png/392x696bb.png" loading="lazy" onerror="this.remove()"></div>
+</div><div class="gcard">
+  <div class="gc-top"><img class="ico" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/f5/07/06/f50706d8-67eb-53fd-1a63-1e8b6558211b/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" loading="lazy" onerror="this.style.opacity=.15">
+    <div class="body">
+      <div class="top"><span class="gt">Tile Scenery: Match Puzzle</span><span class="pill cat">Puzzle</span></div>
+      <div class="gp">Tile Scenery: Match Puzzle is an engaging and visually captivating casual game that invites players into a vibrant world of tile-matching fun. With it…</div>
+      <div class="meta"><span>#21 install T6</span><span>⭐ 4.92</span><span class="pub2">文婷 刘</span></div>
+      <div class="meta2 stat"><span class="plat">iOS</span><span><b>20</b> install T6</span><span class="mom up">▲ +100%</span><span><b>—</b> rev 90d</span><span class="win">iOS·WW</span></div>
+    </div></div>
+  <div class="shots"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/8a/06/c2/8a06c274-390b-294e-7e91-592c6249aaaa/TileScenery_1242x2208_1.jpg/392x696bb.jpg" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/07/2e/0f/072e0f8e-7233-5c65-0a9e-64620800d199/TileScenery_1242x2208_3.jpg/392x696bb.jpg" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/5a/d8/ca/5ad8cafe-7281-0122-2086-0f2108d59e2f/TileScenery_1242x2208_4.jpg/392x696bb.jpg" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/3b/f2/53/3bf2532d-94a1-06ab-16ea-c08778244218/TileScenery_1242x2208_5.jpg/392x696bb.jpg" loading="lazy" onerror="this.remove()"></div>
+</div><div class="gcard">
+  <div class="gc-top"><img class="ico" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/32/4f/fb/324ffb98-1909-7e17-246c-774d2b37df55/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" loading="lazy" onerror="this.style.opacity=.15">
+    <div class="body">
+      <div class="top"><span class="gt">Match Junk: Triple Tile Puzzle</span><span class="pill cat">Puzzle</span></div>
+      <div class="gp">I spy, with my little eye… Ready to try your hand (and eye) at this fantastic matching game? Match Junk has got everything you’re looking for in a tri…</div>
+      <div class="meta"><span>#22 install T6</span><span>⭐ 4.63</span><span class="pub2">SayGames LTD</span></div>
+      <div class="meta2 stat"><span class="plat">iOS + Android</span><span><b>11</b> install T6</span><span class="mom up">▲ +38%</span><span><b>$53K</b> rev 90d</span><span class="win">iOS·WW</span></div>
+    </div></div>
+  <div class="shots"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/e0/34/4d/e0344d44-bce4-fd8b-4c67-0f41663a2e06/90f97785-03b2-4f6b-992e-68568e28d005_3JM_1242x2208_AppStore_05.png/392x696bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/8c/b1/02/8cb102fb-a3ab-846d-b4cb-08ba27d9f4e4/e405b90f-8813-4b24-b8a0-225d539c9d7e_3JM_1242x2208_AppStore_01.png/392x696bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/76/2f/f1/762ff1c8-8f8c-4612-bef0-ba4cd611ad19/97ceb9f5-0c0f-475a-a680-9923d1e9a1ad_3JM_1242x2208_AppStore_04.png/392x696bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/ac/ad/ce/acadce6a-af57-4b26-8d15-8615cbfa7a73/61183e89-8366-49fd-a12e-548ff526e205_3JM_1242x2208_AppStore_07.png/392x696bb.png" loading="lazy" onerror="this.remove()"></div>
+</div><div class="gcard">
+  <div class="gc-top"><img class="ico" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/b0/32/42/b0324233-5305-1813-8db4-3aac4f83957f/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" loading="lazy" onerror="this.style.opacity=.15">
+    <div class="body">
+      <div class="top"><span class="gt">Tile Match 3D : Triple Match</span><span class="pill cat">Board</span></div>
+      <div class="gp">Find, match, collect 3D objects to be a 3d match game master! Tile Match 3D - Triple Match is a new brand, challenging and original matching hidden ob…</div>
+      <div class="meta"><span>#23 install T6</span><span>⭐ 4.92</span><span class="pub2">FUNSEA LIMITED</span></div>
+      <div class="meta2 stat"><span class="plat">iOS + Android</span><span><b>9</b> install T6</span><span class="mom up">▲ +80%</span><span><b>$347K</b> rev 90d</span><span class="win">iOS·WW</span></div>
+    </div></div>
+  <div class="shots"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/1e/8d/d3/1e8dd308-9e4c-5053-2bf6-b312c0fa28c1/1.png/320x0w.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/ed/a1/a5/eda1a5ab-4ab2-f8aa-92ce-1441ac036412/2.png/320x0w.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/7b/15/4b/7b154b3a-88f0-e905-e0aa-7ba893e9f0af/3.png/320x0w.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/c0/ad/9d/c0ad9d70-45ac-c545-dba6-c8ba5513c18c/4.png/320x0w.png" loading="lazy" onerror="this.remove()"></div>
+</div><div class="gcard">
+  <div class="gc-top"><img class="ico" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/45/ce/68/45ce6829-9115-42e9-670a-ee580f568b8b/AppIcon-0-0-1x_U007emarketing-0-5-85-220.png/512x512bb.jpg" loading="lazy" onerror="this.style.opacity=.15">
+    <div class="body">
+      <div class="top"><span class="gt">Match Hunter: Triple Clear</span><span class="pill cat">Casual</span></div>
+      <div class="gp">- New Goods Sorting World in Match 3D Gaming! Elevate your leisure time with our captivating 3D match puzzle game! Immerse yourself in triple goods so…</div>
+      <div class="meta"><span>#24 install T6</span><span>⭐ 4.93</span><span class="pub2">Longwind Studio</span></div>
+      <div class="meta2 stat"><span class="plat">iOS + Android</span><span><b>9</b> install T6</span><span class="mom down">▼ -100%</span><span><b>—</b> rev 90d</span><span class="win">iOS·WW</span></div>
+    </div></div>
+  <div class="shots"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/bf/1b/15/bf1b1547-6ba5-e5b2-16f7-d1a301f91415/b25e8415-e077-4601-a3e3-ad6795f69132_240402_ios_penguin1en_Trp.png/392x696bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/22/12/00/2212003c-fc2d-ca6a-4e2f-6a3847c64686/f7d0391c-226c-451d-81a0-5f14802f0ab8_240402_ios_penguin2en_Trp.png/392x696bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/7a/73/51/7a73512b-b6b4-0688-38e4-3966ba56a0a0/3en_ios.png/392x696bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/01/16/7a/01167a45-6217-8332-99e8-116ba1ea5669/4en_ios.png/392x696bb.png" loading="lazy" onerror="this.remove()"></div>
+</div><div class="gcard">
+  <div class="gc-top"><img class="ico" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/b3/b6/d8/b3b6d81e-243a-f86d-9f87-8ee35c5ccc13/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" loading="lazy" onerror="this.style.opacity=.15">
+    <div class="body">
+      <div class="top"><span class="gt">Tile Garden: Relaxing Puzzle</span><span class="pill cat">Puzzle</span></div>
+      <div class="gp">Are you a fan of match-three &amp; matching games? Tile Garden: Match 3 Puzzle will fulfil your need for matching fun with new puzzle challenges every day…</div>
+      <div class="meta"><span>#25 install T6</span><span>⭐ 4.74</span><span class="pub2">Lion Studios</span></div>
+      <div class="meta2 stat"><span class="plat">iOS + Android</span><span><b>—</b> install T6</span><span class="mom down">▼ -100%</span><span><b>$185</b> rev 90d</span><span class="win">iOS·WW</span></div>
+    </div></div>
+  <div class="shots"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/0d/c8/16/0dc816a0-ba2d-2892-bd48-946fbed3c224/59b70fd8-261d-44bc-b974-05801e6b4b91_1pot_1242x2208.png/392x696bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/1b/14/61/1b14612e-d9cb-9320-ed28-78ef19832dc1/444b9b71-0f23-441e-a20d-0e7fa8d34ecc_2pot_1242x2208.png/392x696bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/8d/9a/07/8d9a07b5-5c50-d2c5-0c10-f1f7bafb18e2/02d9336a-b095-4320-9ff7-6ac1cbe3310b_4Pot_1242x2208.png/392x696bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/02/de/4d/02de4daa-daaa-47d6-8b7d-bc2cc44702a7/4297c6cc-a89d-439c-8238-a5cbf09c8939_7pot_1242x2208.png/392x696bb.png" loading="lazy" onerror="this.remove()"></div>
+</div></div><div class="mech-h"><span class="mn">🔗 Mahjong / Connect match (cận kề)</span><span class="mc">4 game</span></div><div class="md">Nối 2 tile giống nhau bằng đường ≤2 góc (mạch mahjong). Cùng tệp người chơi, tư duy đường đi.</div><div class="gallery"><div class="gcard">
+  <div class="gc-top"><img class="ico" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/f8/9d/b1/f89db12d-0141-ef1b-dc77-06278b3c2d0f/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" loading="lazy" onerror="this.style.opacity=.15">
+    <div class="body">
+      <div class="top"><span class="gt">Zen Tiles - Mahjong Match</span><span class="pill cat">Board</span></div>
+      <div class="gp">Discover tranquility with Zen Tiles: Mahjong Triple Match, where peaceful tile matching meets strategic puzzle mastery in a beautifully crafted experi…</div>
+      <div class="meta"><span>#6 install T6</span><span>⭐ 4.75</span><span class="pub2">Bluetile Games S.L.</span></div>
+      <div class="meta2 stat"><span class="plat">iOS + Android</span><span><b>73K</b> install T6</span><span class="mom up">▲ +130%</span><span><b>$467</b> rev 90d</span><span class="win">iOS·WW</span></div>
+    </div></div>
+  <div class="shots"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/99/b7/86/99b78643-1f48-6a93-4516-81c22c92f8f5/EN_MAT_1242x2208_Screen_1.jpg/392x696bb.jpg" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/04/30/7e/04307eca-9bb9-e4bf-ac16-627a5742dfd2/EN_MAT_1242x2208_Screen_2.jpg/392x696bb.jpg" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/d7/1f/ee/d71fee68-12cf-b784-c1f4-e0f3403f4944/EN_MAT_1242x2208_Screen_2-1.jpg/392x696bb.jpg" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/b0/e5/f4/b0e5f4ec-9aaa-27cb-4a1c-9614cada17db/EN_MAT_1242x2208_Screen_2-2.jpg/392x696bb.jpg" loading="lazy" onerror="this.remove()"></div>
+</div><div class="gcard">
+  <div class="gc-top"><img class="ico" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/1d/6f/75/1d6f759f-ee6d-bc07-8eec-25728d7461a7/AppIcon-0-0-1x_U007epad-0-1-0-0-sRGB-85-220.png/512x512bb.jpg" loading="lazy" onerror="this.style.opacity=.15">
+    <div class="body">
+      <div class="top"><span class="gt">3 Tiles: Connect Tile Matching</span><span class="pill cat">Board</span></div>
+      <div class="gp">3 TILES will make you fall in love with brain &amp; attention puzzle games. 3 TILES is the best way to switch your mind, relax, and entertain after studie…</div>
+      <div class="meta"><span>#10 install T6</span><span>⭐ 4.52</span><span class="pub2">APPSYOULOVE LTD</span></div>
+      <div class="meta2 stat"><span class="plat">iOS + Android</span><span><b>17K</b> install T6</span><span class="mom down">▼ -3%</span><span><b>$95K</b> rev 90d</span><span class="win">iOS·WW</span></div>
+    </div></div>
+  <div class="shots"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/Purple112/v4/d8/86/63/d8866309-987d-4795-33bb-c79724aef869/a541e69d-662c-46e6-8323-5cc656866d95_screen_01__U002835_U0029.jpg/392x696bb.jpg" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/Purple122/v4/2a/53/2d/2a532df1-e406-f680-4a75-b44554425590/80560ae8-ae99-4889-9910-aba4508668d6_screen_02__U002834_U0029.jpg/392x696bb.jpg" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/Purple112/v4/66/54/f9/6654f9e2-81e3-10c5-5449-03c052515821/795c9e6d-474c-42a6-9e9b-1a35e515d165_screen_03.jpg/392x696bb.jpg" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/Purple122/v4/28/51/e7/2851e7c1-fb44-aaca-8ebe-e0dbd01cce36/c1a69c1c-75d8-44fc-92ac-3a4770d0cd17_screen_04.jpg/392x696bb.jpg" loading="lazy" onerror="this.remove()"></div>
+</div><div class="gcard">
+  <div class="gc-top"><img class="ico" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/07/70/1f/07701f35-f011-a9ab-b827-4900e9c5a3ea/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" loading="lazy" onerror="this.style.opacity=.15">
+    <div class="body">
+      <div class="top"><span class="gt">Tile Connect: Matching Games</span><span class="pill cat">Casual</span></div>
+      <div class="gp">Dive into the captivating world of Tile Connect, the ultimate matching game that challenges your mind and tests your strategy! In this thrilling tile …</div>
+      <div class="meta"><span>#15 install T6</span><span>⭐ 4.61</span><span class="pub2">HIGGS TECHNOLOGY CO., LIMITED</span></div>
+      <div class="meta2 stat"><span class="plat">iOS + Android</span><span><b>3K</b> install T6</span><span class="mom up">▲ +21%</span><span><b>$1K</b> rev 90d</span><span class="win">iOS·WW</span></div>
+    </div></div>
+  <div class="shots"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/Purple124/v4/17/3f/27/173f2714-75c5-3cab-345d-6065d44bec79/b1ac24ab-151b-4fa2-9a8d-23ae3ab982f6_TC__U4e94_U56fe_1242x2208_9.png/392x696bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/Purple124/v4/83/a8/d5/83a8d563-c972-9633-6432-fc547ce40790/fbc1f56f-7a35-45dd-b20b-d2bdd3a65010_TC__U4e94_U56fe_1242x2208_2.png/392x696bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/Purple114/v4/a1/75/10/a17510fb-13ef-2dcd-bc17-e1e7fd1c4951/afedc0a0-5cb3-44a8-855e-323f09439702_TC__U4e94_U56fe_1242x2208_1.png/392x696bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/Purple114/v4/55/82/9c/55829c03-b233-f7ac-e77a-a280008a8144/44998771-5dff-43d5-9c58-1e7286496b0f_TC__U4e94_U56fe_1242x2208_7.png/392x696bb.png" loading="lazy" onerror="this.remove()"></div>
+</div><div class="gcard">
+  <div class="gc-top"><img class="ico" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/52/78/cf/5278cf3b-7acc-5d02-428f-24d36aa245cc/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" loading="lazy" onerror="this.style.opacity=.15">
+    <div class="body">
+      <div class="top"><span class="gt">Tile Dynasty: Triple Mahjong</span><span class="pill cat">Puzzle</span></div>
+      <div class="gp">Welcome to the captivating world of Tile Dynasty, where the art of matching tiles takes center stage in this exciting puzzle adventure! Immerse yourse…</div>
+      <div class="meta"><span>#20 install T6</span><span>⭐ 4.85</span><span class="pub2">Tripledot Studios</span></div>
+      <div class="meta2 stat"><span class="plat">iOS + Android</span><span><b>45</b> install T6</span><span class="mom down">▼ -42%</span><span><b>—</b> rev 90d</span><span class="win">iOS·WW</span></div>
+    </div></div>
+  <div class="shots"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/50/98/c3/5098c3ac-27db-555f-60e7-e8af8d8007c0/17d877ef-de6a-43a4-8091-31e67f5f008b_001_IOS_TDN_Mahjong_Screenshot_EN_1242x2208_1.png/392x696bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/4c/11/5d/4c115d47-20f8-6243-ce1e-645c1850dd3e/8d3342e0-1e90-4e39-881c-f903492ae7e1_001_IOS_TDN_Mahjong_Screenshot_EN_1242x2208_2.png/392x696bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/c4/41/e5/c441e5a5-00f8-2cbd-33ba-88f9619c5d28/a167434c-a9cf-427e-9094-72a827daafaf_001_IOS_TDN_Mahjong_Screenshot_EN_1242x2208_3.png/392x696bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/52/34/0a/52340a5b-a901-9df6-13f3-3d86e8897c4f/f3f7c8db-df53-4c5a-a600-2fe486d10104_001_IOS_TDN_Mahjong_Screenshot_EN_1242x2208_4.png/392x696bb.png" loading="lazy" onerror="this.remove()"></div>
+</div></div><div class="mech-h"><span class="mn">🏭 Match-collect / Order (cận kề)</span><span class="mc">1 game</span></div><div class="md">Gom vật phẩm theo đơn hàng trên băng chuyền (match factory). Meta sâu hơn, monetization mạnh.</div><div class="gallery"><div class="gcard">
+  <div class="gc-top"><img class="ico" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/30/65/44/3065447b-4674-7285-954a-4f5db9728e60/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" loading="lazy" onerror="this.style.opacity=.15">
+    <div class="body">
+      <div class="top"><span class="gt">Match Factory!</span><span class="pill cat">Puzzle</span></div>
+      <div class="gp">Welcome to Match Factory - The Ultimate 3D Puzzle Adventure! Dive into the fascinating world of Match Factory, the brand new puzzle game from the crea…</div>
+      <div class="meta"><span>#2 install T6</span><span>⭐ 4.8</span><span class="pub2">Peak Games</span></div>
+      <div class="meta2 stat"><span class="plat">iOS + Android</span><span><b>315K</b> install T6</span><span class="mom down">▼ -1%</span><span><b>$27.3M</b> rev 90d</span><span class="win">iOS·WW</span></div>
+    </div></div>
+  <div class="shots"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/9d/12/37/9d1237be-0e60-38f1-2d5b-32fb9f575fb0/orangeballs-6.9inch_1320x2868.png/320x0w.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/e1/e6/c3/e1e6c39f-49e2-dc43-564f-7a561f763c81/dae1e3c6-1501-4e71-9d82-345e538baedf_3-6.7inch_1290x2796.png/320x0w.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/22/a4/ed/22a4ed4a-4f96-4a97-bc2b-bd3b0ace1953/d9397032-feab-4a72-aa40-9d2f904c01ab_1-6.7inch_1290x2796.png/320x0w.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/cc/b3/25/ccb32537-3e0e-dbe4-efe3-1c81f093a41d/49f66389-4659-417b-8c34-6de1480699d2_2-6.7inch_1290x2796.png/320x0w.png" loading="lazy" onerror="this.remove()"></div>
+</div></div>
+
+<h2>🎨 Reskin sang theme gì thì hợp? (10 ý tưởng)</h2>
+<div class="h2s">Tile-match ăn nhất với theme <b>cozy / sưu tầm / du lịch</b>. Giữ nguyên core, chỉ đổi bộ tile-art + nền + nhạc + meta trang trí. Hợp gu người chơi nữ 25-45, phiên chơi thư giãn.</div>
+<div class="ideas">
+<div class="idea"><img class="sh" src="https://global-omg.github.io/showcase/images/tilematch/reskin-01-zengarden.jpg" loading="lazy" onerror="this.remove()"><div class="it">1. Zen Garden Nhật Bản</div><div class="id">Tile = đá cuội, rêu, koi, bonsai, chuông gió. Nền cào cát ASMR, mùa hoa anh đào đổi theo tháng. "Explorer" hợp fantasy khám phá vườn thiền.</div></div>
+<div class="idea"><img class="sh" src="https://global-omg.github.io/showcase/images/tilematch/reskin-02-cafe.jpg" loading="lazy" onerror="this.remove()"><div class="it">2. Cozy Café / Tiệm bánh</div><div class="id">Tile = tách trà, latte art, croissant, mứt. Meta: nâng cấp quán, mở món mới. Ấm áp, gần gũi, dễ ra IAP décor.</div></div>
+<div class="idea"><img class="sh" src="https://global-omg.github.io/showcase/images/tilematch/reskin-03-travel.jpg" loading="lazy" onerror="this.remove()"><div class="it">3. Du lịch vòng quanh thế giới</div><div class="id">Bám đúng chữ "Explorer": mỗi chương là một quốc gia (kỷ vật, ẩm thực, landmark). Sưu tầm postcard/tem — fantasy đi đây đi đó.</div></div>
+<div class="idea"><img class="sh" src="https://global-omg.github.io/showcase/images/tilematch/reskin-04-cottagecore.jpg" loading="lazy" onerror="this.remove()"><div class="it">4. Cottagecore vườn quê</div><div class="id">Hoa dại, ong bướm, mứt tự làm, đan len. Palette pastel, nhạc acoustic. Trend cozy-core rất mạnh trên nữ casual.</div></div>
+<div class="idea"><img class="sh" src="https://global-omg.github.io/showcase/images/tilematch/reskin-05-pets.jpg" loading="lazy" onerror="this.remove()"><div class="it">5. Mèo &amp; Thú cưng (Meowdoku synergy)</div><div class="id">Tile = đồ chơi, cá, len cuộn, dấu chân mèo. Tận dụng IP/tệp Meowdoku! sẵn có của Oakever để cross-promote.</div></div>
+<div class="idea"><img class="sh" src="https://global-omg.github.io/showcase/images/tilematch/reskin-06-florist.jpg" loading="lazy" onerror="this.remove()"><div class="it">6. Tiệm hoa / Florist theo mùa</div><div class="id">Bó hoa theo mùa, chậu cây, dụng cụ làm vườn. Meta cắm hoa trang trí cửa tiệm — thỏa mãn thị giác.</div></div>
+<div class="idea"><img class="sh" src="https://global-omg.github.io/showcase/images/tilematch/reskin-07-dessert.jpg" loading="lazy" onerror="this.remove()"><div class="it">7. Dessert kawaii / Sweet shop</div><div class="id">Mochi, macaron, kem, kẹo. Màu kẹo ngọt, hiệu ứng juicy khi match. Cực hợp share ảnh, viral nhẹ.</div></div>
+<div class="idea"><img class="sh" src="https://global-omg.github.io/showcase/images/tilematch/reskin-08-galaxy.jpg" loading="lazy" onerror="this.remove()"><div class="it">8. Không gian &amp; Thiên hà mộng mơ</div><div class="id">Hành tinh, sao băng, phi hành gia dễ thương. Nền galaxy chuyển động chậm, nhạc ambient — thư giãn về đêm.</div></div>
+<div class="idea"><img class="sh" src="https://global-omg.github.io/showcase/images/tilematch/reskin-09-holiday.jpg" loading="lazy" onerror="this.remove()"><div class="it">9. Lễ hội theo mùa (live-ops)</div><div class="id">Bộ tile Giáng Sinh / Halloween / Tết. Không đổi core — chỉ swap skin theo sự kiện để giữ retention &amp; làm mới liên tục.</div></div>
+<div class="idea"><img class="sh" src="https://global-omg.github.io/showcase/images/tilematch/reskin-10-antique.jpg" loading="lazy" onerror="this.remove()"><div class="it">10. Tiệm đồ cổ / Bảo tàng kỳ vật</div><div class="id">Tile = cổ vật, bản đồ, la bàn, đồng hồ. Meta phục chế &amp; trưng bày bảo tàng — chiều sâu sưu tầm cho người chơi lâu dài.</div></div>
+</div>
+
+<h2>🌿 Refresh gameplay để đẩy mạnh tính chill (10 ý tưởng)</h2>
+<div class="h2s">Mục tiêu: giữ cảm giác tap-3-thư-giãn, giảm mọi nguồn căng thẳng, tăng phần thưởng thị giác &amp; sưu tầm.</div>
+<div class="ideas">
+<div class="idea chill"><img class="sh" src="https://global-omg.github.io/showcase/images/tilematch/chill-01-zenmode.jpg" loading="lazy" onerror="this.remove()"><div class="it">1. Zen / No-fail mode</div><div class="id">Chế độ không thua, không đồng hồ đếm ngược — chỉ chơi để thư giãn. Là lựa chọn mặc định cho người tìm sự nhẹ nhàng.</div></div>
+<div class="idea chill"><img class="sh" src="https://global-omg.github.io/showcase/images/tilematch/chill-02-asmr.jpg" loading="lazy" onerror="this.remove()"><div class="it">2. ASMR feedback</div><div class="id">Tiếng "ting" mềm + haptic rung nhẹ mỗi lần match, tiếng khay đầy thỏa mãn. Âm thanh là linh hồn của chill.</div></div>
+<div class="idea chill"><img class="sh" src="https://global-omg.github.io/showcase/images/tilematch/chill-03-picreveal.jpg" loading="lazy" onerror="this.remove()"><div class="it">3. Picture-reveal reward</div><div class="id">Dọn tile để lộ dần một bức tranh cozy (giống color-sort pixel). Cho lý do "chơi tiếp để xem tranh hiện ra".</div></div>
+<div class="idea chill"><img class="sh" src="https://global-omg.github.io/showcase/images/tilematch/chill-04-daily.jpg" loading="lazy" onerror="this.remove()"><div class="it">4. Daily Zen Board</div><div class="id">Mỗi ngày 1 bàn thư giãn thiết kế tay, không áp lực điểm — tạo thói quen mở app buổi tối, tách khỏi màn khó.</div></div>
+<div class="idea chill"><img class="sh" src="https://global-omg.github.io/showcase/images/tilematch/chill-05-lofi.jpg" loading="lazy" onerror="this.remove()"><div class="it">5. Nền sống động lo-fi</div><div class="id">Nhạc lo-fi, chu kỳ ngày-đêm &amp; thời tiết động (mưa nhẹ, tuyết rơi). Không gian thở để mắt nghỉ giữa các nước.</div></div>
+<div class="idea chill"><img class="sh" src="https://global-omg.github.io/showcase/images/tilematch/chill-06-undo.jpg" loading="lazy" onerror="this.remove()"><div class="it">6. Undo/Hint hào phóng</div><div class="id">Cho undo &amp; gợi ý rộng rãi, ít paywall gắt. Giảm ức chế "kẹt bàn" — đúng tinh thần relax, không rage-quit.</div></div>
+<div class="idea chill"><img class="sh" src="https://global-omg.github.io/showcase/images/tilematch/chill-07-album.jpg" loading="lazy" onerror="this.remove()"><div class="it">7. Album sưu tầm chậm</div><div class="id">Ghép bộ sưu tập theo chủ đề (bướm, tem, hoa), mở dần qua nhiều phiên. Mục tiêu dài hạn êm ái, không FOMO.</div></div>
+<div class="idea chill"><img class="sh" src="https://global-omg.github.io/showcase/images/tilematch/chill-08-decorate.jpg" loading="lazy" onerror="this.remove()"><div class="it">8. Decorate-a-space meta</div><div class="id">Dùng tile clear để kiếm vật liệu trang trí một căn phòng/khu vườn của riêng mình. Narrative-lite, tự biểu đạt.</div></div>
+<div class="idea chill"><img class="sh" src="https://global-omg.github.io/showcase/images/tilematch/chill-09-endless.jpg" loading="lazy" onerror="this.remove()"><div class="it">9. Endless Relax mode</div><div class="id">Bàn vô tận tự sinh, không mục tiêu ép buộc — chơi bao lâu tùy thích. Nhiên liệu cho session "tắt não" trước khi ngủ.</div></div>
+<div class="idea chill"><img class="sh" src="https://global-omg.github.io/showcase/images/tilematch/chill-10-social.jpg" loading="lazy" onerror="this.remove()"><div class="it">10. Soft social</div><div class="id">Gửi bàn cho bạn, co-op dọn chung, "chăm vườn hộ" — gắn kết nhẹ nhàng, tuyệt đối không PvP đếm giờ căng thẳng.</div></div>
+</div>
+
+<footer>Nguồn: Sensor Tower (install/revenue, iOS Worldwide) · iTunes/App Store (metadata, ảnh game thật) · Tăng trưởng T6 vs T5/2026 · Install là lượt tải MỚI theo tháng (không phải luỹ kế) nên game đời cũ tự nhiên thấp. · Ảnh concept 20 ý tưởng reskin/gameplay: <b>AI-generated bằng OpenArt (Seedream 4.5)</b> — minh hoạ định hướng, không phải ảnh sản phẩm thật (bấm ảnh để phóng to).</footer>
+</div>
+</script>
 <script>
-const META = {"dataai": {"title": "Game tăng install 3 tháng — theo genre", "source": "Sensor Tower · data.ai", "updated": "07/07/2026"}, "ios_q2": {"title": "Game tăng install — iOS US Q2 2026", "source": "Sensor Tower", "updated": "06/07/2026"}, "subgenre": {"title": "Subgenre dễ làm — tăng install 3 tháng", "source": "Sensor Tower · iOS US", "updated": "07/07/2026"}, "block_blast": {"title": "Dòng game Block Blast — Phân tích thị trường", "source": "Dữ liệu công khai", "updated": "07/07/2026"}, "puzzle": {"title": "Puzzle deduction — game tương tự trên store", "source": "Sensor Tower · Khảo sát store", "updated": "07/07/2026"}};
+const META = {"tilematch": {"title": "Tile-Match / Tile Clear — nghiên cứu dòng game", "source": "Sensor Tower · iOS WW", "updated": "07/07/2026"}, "tilematch": {"title": "Tile-Match / Tile Clear — nghiên cứu dòng game", "source": "Sensor Tower · iOS WW", "updated": "07/07/2026"}, "dataai": {"title": "Game tăng install 3 tháng — theo genre", "source": "Sensor Tower · data.ai", "updated": "07/07/2026"}, "ios_q2": {"title": "Game tăng install — iOS US Q2 2026", "source": "Sensor Tower", "updated": "06/07/2026"}, "subgenre": {"title": "Subgenre dễ làm — tăng install 3 tháng", "source": "Sensor Tower · iOS US", "updated": "07/07/2026"}, "block_blast": {"title": "Dòng game Block Blast — Phân tích thị trường", "source": "Dữ liệu công khai", "updated": "07/07/2026"}, "puzzle": {"title": "Puzzle deduction — game tương tự trên store", "source": "Sensor Tower · Khảo sát store", "updated": "07/07/2026"}};
 const stage = document.getElementById('stage');
 const frames = {};
 

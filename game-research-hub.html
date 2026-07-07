@@ -101,6 +101,7 @@
 <a class="nav-item" data-id="subgenre" href="#subgenre"><span class="nav-ico">🧩</span><span class="nav-txt">Subgenre dễ làm — tăng install 3 tháng</span></a>
 <div class="nav-group">Hồ sơ chuyên sâu</div>
 <a class="nav-item" data-id="block_blast" href="#block_blast"><span class="nav-ico">🟦</span><span class="nav-txt">Dòng game Block Blast — Phân tích thị trường</span></a>
+<a class="nav-item" data-id="tile_explorer" href="#tile_explorer">🗺️ Tile Explorer Triple Match</a>
 <a class="nav-item" data-id="tilematch" href="#tilematch"><span class="nav-ico">🀄</span><span class="nav-txt">Tile-Match / Tile Clear — dòng game</span></a>
 <a class="nav-item" data-id="puzzle" href="#puzzle"><span class="nav-ico">🔍</span><span class="nav-txt">Puzzle deduction — game tương tự trên store</span></a>
   </nav>
@@ -150,6 +151,15 @@
     <div class="card-title">Dòng game Block Blast — Phân tích thị trường</div>
     <div class="card-desc">Dossier dòng Block Blast (grid 8×8, kéo-thả, ăn hàng): đối đầu Block Blast! vs Woodoku Blast, toàn bộ roster cùng dòng và nhận định sơ bộ.</div>
     <div class="card-meta"><span class="tag">Dữ liệu công khai</span><span class="tag tag-date">Cập nhật 07/07/2026</span></div>
+  </div>
+  <div class="card-arrow">→</div>
+</button>
+<button class="card" data-id="tile_explorer">
+  <div class="card-ico">🗺️</div>
+  <div class="card-body">
+    <div class="card-title">Tile Explorer Triple Match — nghiên cứu dòng game</div>
+    <div class="card-desc">Ngách triple-match + meta khám phá/du lịch. 18 game cùng dòng, install/revenue thật (iOS·WW·90d), gom 2 cấp Game IQ→gameplay, phân tích gốc/clone &amp; cơ hội blue/red ocean.</div>
+    <div class="card-meta"><span class="tag">Sensor Tower</span><span class="tag tag-date">Cập nhật 07/07/2026</span></div>
   </div>
   <div class="card-arrow">→</div>
 </button>
@@ -3085,8 +3095,284 @@ footer{margin-top:40px;color:var(--muted);font-size:12px;border-top:1px solid va
 <footer>Nguồn: Sensor Tower (install/revenue, iOS Worldwide) · iTunes/App Store (metadata, ảnh game thật) · Tăng trưởng T6 vs T5/2026 · Install là lượt tải MỚI theo tháng (không phải luỹ kế) nên game đời cũ tự nhiên thấp. · Ảnh concept 20 ý tưởng reskin/gameplay: <b>AI-generated bằng OpenArt (Seedream 4.5)</b> — minh hoạ định hướng, không phải ảnh sản phẩm thật (bấm ảnh để phóng to).</footer>
 </div>
 </script>
+<script type="text/html" id="src-tile_explorer">
+<style>
+:root{--bg:#0d1117;--panel:#161b22;--panel2:#1c2330;--line:#2a3340;--text:#e6edf3;--muted:#8b98a9;--accent:#3fb950;--accent2:#58a6ff;--warn:#e3b341;--red:#f85149;--purple:#a371f7}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.5}
+.wrap{max-width:1180px;margin:0 auto;padding:26px 22px 70px}
+h1{font-size:23px;margin:0 0 6px}.sub{color:var(--muted);font-size:13px;margin-bottom:12px}
+.tag{display:inline-block;background:var(--panel2);border:1px solid var(--line);color:var(--muted);font-size:12px;padding:3px 10px;border-radius:20px;margin:6px 6px 0 0}
+.note{margin:14px 0;background:rgba(227,179,65,.10);border:1px solid var(--warn);border-radius:10px;padding:11px 14px;font-size:12.5px;color:#e8d9a8}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:18px 0}
+@media(max-width:800px){.cards{grid-template-columns:repeat(2,1fr)}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px}.card .n{font-size:22px;font-weight:800;color:var(--accent)}.card .l{font-size:12px;color:var(--muted);margin-top:3px}
+h2{font-size:17px;margin:30px 0 4px}
+.mech-h{display:flex;align-items:baseline;gap:10px;margin:30px 0 4px;padding-bottom:6px;border-bottom:2px solid var(--accent2)}.mech-h .mn{font-size:16px;font-weight:800}.mech-h .mc{font-size:12px;color:var(--muted)}
+.md{color:var(--muted);font-size:12.5px;margin-bottom:12px}
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:13px}
+.gcard{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:13px;display:flex;flex-direction:column;gap:10px}
+.gcard.seed{border-color:var(--purple);box-shadow:0 0 0 1px var(--purple)}
+.gc-top{display:flex;gap:12px}.ico{width:70px;height:70px;border-radius:15px;flex-shrink:0;object-fit:cover;background:var(--panel2);border:1px solid var(--line)}
+.body{min-width:0}.top{display:flex;align-items:center;gap:6px;flex-wrap:wrap}.gt{font-weight:700;font-size:14px}
+.pill{font-size:10px;padding:1px 7px;border-radius:20px;background:var(--panel2);border:1px solid var(--line);color:var(--muted)}
+.pill.cat{background:rgba(88,166,255,.12);border-color:var(--accent2);color:var(--accent2)}
+.pill.seedp{background:rgba(163,113,247,.18);border-color:var(--purple);color:#d7c4ff}
+.gp{font-size:12.3px;color:#c1ccd8;margin-top:5px}
+.meta,.meta2{font-size:11.3px;color:var(--muted);margin-top:6px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}.meta b{color:var(--text)}
+.pub2{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:150px}
+.meta2.stat{border-top:1px dashed var(--line);padding-top:6px}.meta2.stat b{color:var(--text)}
+.plat{background:rgba(88,166,255,.15);border:1px solid var(--accent2);color:var(--accent2);border-radius:20px;padding:1px 7px;font-size:10px}
+.mom.up{color:var(--accent);font-weight:700}.mom.down{color:var(--red);font-weight:700}.mom.flat{color:var(--muted)}
+.win{opacity:.7;font-size:10px}
+.shots{display:flex;gap:6px;overflow-x:auto;padding-bottom:2px}.sh{height:150px;width:auto;border-radius:9px;border:1px solid var(--line);background:var(--panel2);flex-shrink:0;cursor:zoom-in}
+.box{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:10px 0;font-size:13px}
+.box h3{margin:0 0 8px;font-size:14.5px;color:#fff}
+.box ul{margin:6px 0 0;padding-left:18px}.box li{margin:5px 0;color:#c9d4e0}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}@media(max-width:760px){.two{grid-template-columns:1fr}}
+.op{border-left:3px solid var(--accent)}.rk{border-left:3px solid var(--red)}
+footer{margin-top:40px;color:var(--muted);font-size:12px;border-top:1px solid var(--line);padding-top:14px}
+</style>
+<div class="wrap">
+<h1>🗺️ Tile Explorer Triple Match — nghiên cứu dòng game &amp; cơ hội</h1>
+<div class="sub">Ngách kết hợp lõi <b>Triple Match</b> (chạm/gom 3 tile giống nhau để dọn bàn) với meta <b>Explorer/Adventure</b> (khám phá bản đồ · du lịch · tân trang). 18 sản phẩm khảo sát.</div>
+<span class="tag">Gom nhóm 2 cấp: Game IQ → gameplay</span><span class="tag">iOS · Worldwide</span><span class="tag">Cửa sổ 90 ngày (Apr–Jun 2026)</span>
+<div class="note"><b>Nguồn số liệu:</b> data.ai Game IQ đang <b>403</b> (mất quyền) → install/revenue lấy từ <b>Sensor Tower</b> (<code>sales_report_estimates</code>, iOS · <b>Worldwide</b>, tổng 3 tháng Apr–Jun 2026 ≈ 90d). Revenue là IAP ước lượng (chưa gồm ad-revenue) → game ad-led hiện "IAP≈0". Platform dò qua Sensor Tower unified. <b>Cấp-1</b> (Game IQ Class/Subgenre) suy ra theo cơ chế + iOS category vì taxonomy 403 — cần đối chiếu lại khi có quyền.</div>
+
+<div class="cards">
+  <div class="card"><div class="n">18</div><div class="l">sản phẩm cùng dòng khảo sát</div></div>
+  <div class="card"><div class="n">4.1M</div><div class="l">tổng install 90d (iOS·WW)</div></div>
+  <div class="card"><div class="n">$39.4M</div><div class="l">tổng revenue IAP 90d</div></div>
+  <div class="card"><div class="n">Tile Explorer</div><div class="l">con breakout duy nhất của ngách (1.85M install · +50% MoM)</div></div>
+</div>
+
+<h2>Danh sách sản phẩm — gom theo Game IQ (cấp-1) › gameplay (cấp-2)</h2>
+<div class="md" style="margin-bottom:2px">Cấp-1 (Game IQ): <b>Puzzle / Casual › Match › Tile / Triple Match</b> — taxonomy suy ra theo cơ chế (data.ai 403). Cấp-2 = 4 nhánh gameplay dưới đây.</div>
+<div class="mech-h"><span class="mn">A · Triple-tile clear + meta KHÁM PHÁ / DU LỊCH</span><span class="mc">8 game</span></div>
+<div class="md">Lõi triple-match cổ điển, phủ meta “explorer / voyage / vacation / journey” — đây là ngách hẹp mà câu hỏi nhắm tới. Phần lớn ra 2024–2026, install nhanh nhưng monetization còn mỏng (ad-led).</div>
+<div class="gallery"><div class="gcard seed">
+  <div class="gc-top"><img class="ico" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/22/fb/bf/22fbbf18-7b96-1e15-7a07-cde147312147/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/150x150bb.jpg" loading="lazy" onerror="this.style.opacity=.15">
+    <div class="body">
+      <div class="top"><span class="gt">Tile Explorer: Tiles Clear!</span> <span class="pill seedp">BREAKOUT NGÁCH</span><span class="pill cat">Casual</span></div>
+      <div class="gp">Chạm 3 tile giống nhau để dọn sạch bàn; nối các chặng để “khám phá” bản đồ du lịch, mở khoá điểm đến mới vòng quanh thế giới.</div>
+      <div class="meta"><span>#1 install (nhóm)</span><span>⭐ 4.9</span><span>ra mắt 2024-05-17</span><span class="pub2">Oakever Games</span></div>
+      <div class="meta2 stat"><span class="plat">iOS + Android</span><span><b>1.8M</b> install 90d</span><span class="mom up">▲ +50%</span><span><b style="color:var(--accent)">$601K</b> rev 90d</span><span class="win">iOS·WW</span></div>
+    </div></div>
+  <div class="shots"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/a5/b1/11/a5b1119d-eaa3-5159-349c-98687f4ed18e/6.1-1.jpg/462x1000bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/92/af/41/92af4100-4661-8088-e16d-f51978c2ab42/6.1-2.jpg/462x1000bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/c6/0a/f6/c60af687-a1df-cfcf-ee0e-1f932aac36c8/6.1-3.jpg/462x1000bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/88/0e/55/880e55ff-5fe0-8f80-a4a9-80476788691f/6.1-4.jpg/462x1000bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/bc/b3/65/bcb3655c-1f55-8758-51a8-d73d2c0c68c6/6.1-5.jpg/462x1000bb.png" loading="lazy" onerror="this.remove()"></div>
+</div><div class="gcard">
+  <div class="gc-top"><img class="ico" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/b6/1c/87/b61c873a-6673-3ee0-96b6-054ddb34a5bd/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/150x150bb.jpg" loading="lazy" onerror="this.style.opacity=.15">
+    <div class="body">
+      <div class="top"><span class="gt">Tile Vacation - Triple Match</span> <span class="pill cat">Casual</span></div>
+      <div class="gp">Triple-match dọn tile; meta nghỉ dưỡng — hoàn thành level để “du lịch” resort/bãi biển. IAP≈0 · ad-led.</div>
+      <div class="meta"><span>#3 install (nhóm)</span><span>⭐ 4.8</span><span>ra mắt 2025-04-20</span><span class="pub2">VisionStudio</span></div>
+      <div class="meta2 stat"><span class="plat">iOS + Android</span><span><b>355K</b> install 90d</span><span class="mom up">▲ +2%</span><span><b style="color:var(--accent)">$338</b> rev 90d</span><span class="win">iOS·WW</span></div>
+    </div></div>
+  <div class="shots"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/45/52/ee/4552ee9d-e891-ba80-23f1-afd567a33f3d/_U72ec_U7acb_U65e51.jpg/1320x2868bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/1f/37/9f/1f379f31-ed25-a184-21f3-c2b7b3139f89/_U72ec_U7acb_U65e52.jpg/1320x2868bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/a0/6a/7b/a06a7b59-8d50-3aa9-4ae8-5b8075796224/_U72ec_U7acb_U65e53.jpg/1320x2868bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/e5/f8/d1/e5f8d171-ef21-1b72-ea18-d567f9d0e097/_U72ec_U7acb_U65e54.jpg/1320x2868bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/61/ba/c1/61bac1df-4870-c221-be7f-2b423fcbd47f/_U72ec_U7acb_U65e55.jpg/1320x2868bb.png" loading="lazy" onerror="this.remove()"></div>
+</div><div class="gcard">
+  <div class="gc-top"><img class="ico" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/b9/84/6f/b9846f00-91e7-7d09-c3bd-a01106e8642d/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/150x150bb.jpg" loading="lazy" onerror="this.style.opacity=.15">
+    <div class="body">
+      <div class="top"><span class="gt">Tile Voyage: Match Puzzle</span> <span class="pill cat">Puzzle</span></div>
+      <div class="gp">Gom 3 tile vào khay, bóc dần layer chồng; meta “voyage” mở cảnh biển/hải trình theo chương. IAP≈0 · ad-led.</div>
+      <div class="meta"><span>#5 install (nhóm)</span><span>⭐ 4.9</span><span>ra mắt 2025-01-14</span><span class="pub2">UniRise Studio</span></div>
+      <div class="meta2 stat"><span class="plat">iOS + Android</span><span><b>237K</b> install 90d</span><span class="mom up">▲ +167%</span><span><b style="color:var(--accent)">$281</b> rev 90d</span><span class="win">iOS·WW</span></div>
+    </div></div>
+  <div class="shots"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/88/5d/db/885ddb34-757a-29c4-f25c-7ddc6373a849/Gp_Pm_2.jpg/462x1000bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/ef/23/32/ef233245-31a7-099a-6472-7ed6b269fd33/Gp_Pm_1.jpg/462x1000bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/25/30/72/253072d8-8387-548e-15bd-9ffb82ecaa9c/Gp_Pm_4.jpg/462x1000bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/56/fb/ff/56fbff71-89fb-5434-bee5-75e82cbc80b3/Gp_Pm_3.jpg/462x1000bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/68/f3/37/68f33725-2c9b-fd6a-7c7a-5499c0ecc743/Gp_Pm_5.jpg/462x1000bb.png" loading="lazy" onerror="this.remove()"></div>
+</div><div class="gcard">
+  <div class="gc-top"><img class="ico" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/b7/b1/ec/b7b1ec4b-d49e-58e4-87d8-278f2228fead/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/150x150bb.jpg" loading="lazy" onerror="this.style.opacity=.15">
+    <div class="body">
+      <div class="top"><span class="gt">Tile Match Story</span> <span class="pill cat">Casual</span></div>
+      <div class="gp">Triple-match gắn tuyến truyện phiêu lưu nhân vật, mở khoá chương truyện theo tiến độ.</div>
+      <div class="meta"><span>#9 install (nhóm)</span><span>⭐ 4.9</span><span>ra mắt 2024-01-22</span><span class="pub2">Shanghai Zhenglang Technology Co., Ltd.</span></div>
+      <div class="meta2 stat"><span class="plat">iOS + Android</span><span><b>20K</b> install 90d</span><span class="mom down">▼ -10%</span><span><b style="color:var(--accent)">$4K</b> rev 90d</span><span class="win">iOS·WW</span></div>
+    </div></div>
+  <div class="shots"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/48/e9/a3/48e9a316-40ad-05b9-131d-69b4c10a83ab/2-1290x2796.png/1290x2796bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/e2/4b/92/e24b9216-1ecd-d3c2-f808-5dad0c1408b8/653f9164-9811-4c8c-b395-a18f76c93edb_2-1290x2796.png/1290x2796bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/79/13/27/791327a5-22f7-5e15-167e-76ba7438063a/3-1290x2796.png/1290x2796bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/e3/14/76/e314765a-4bfb-096f-6449-b235de5d0e61/b0fa2da4-8834-4c7a-8e02-ef810fea82f1_6.7_U82f1_U5bf8_1290x2796.png/1290x2796bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/7b/24/14/7b2414c4-d4bc-5c47-acb9-32623a3174a1/788af9e8-af48-4325-9a5e-08595aa03673_1290_x_2796.png/1290x2796bb.png" loading="lazy" onerror="this.remove()"></div>
+</div><div class="gcard">
+  <div class="gc-top"><img class="ico" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ee/ab/5a/eeab5a43-7d51-2abb-0482-e61c63fe5a2c/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/150x150bb.jpg" loading="lazy" onerror="this.style.opacity=.15">
+    <div class="body">
+      <div class="top"><span class="gt">Tile Rush: Explore the World</span> <span class="pill cat">Puzzle</span></div>
+      <div class="gp">Triple-match tốc độ, meta khám phá thế giới &amp; thu thập landmark. Install rơi mạnh gần đây.</div>
+      <div class="meta"><span>#8 install (nhóm)</span><span>⭐ 4.7</span><span>ra mắt 2025-06-18</span><span class="pub2">Shanghai Fubian Technology Co., Ltd.</span></div>
+      <div class="meta2 stat"><span class="plat">iOS + Android</span><span><b>20K</b> install 90d</span><span class="mom down">▼ -90%</span><span><b>—</b> rev 90d</span><span class="win">iOS·WW</span></div>
+    </div></div>
+  <div class="shots"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/f9/5a/40/f95a400a-ffd0-7af8-a4fd-029688ff1333/100094@1x.jpg/1290x2796bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/e7/39/74/e739748d-382e-5aab-b46b-71caf0f28e4f/100093@1x.jpg/1290x2796bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/93/e9/73/93e9736f-d125-de79-2972-86928ae64890/100097@1x.jpg/1290x2796bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/96/0f/27/960f275f-4550-1c1e-2710-1fd9be0a728c/100095@1x.jpg/1290x2796bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/e2/b6/8c/e2b68c93-34f0-661e-85d8-518885ef53d1/100096@1x.jpg/1290x2796bb.png" loading="lazy" onerror="this.remove()"></div>
+</div><div class="gcard">
+  <div class="gc-top"><img class="ico" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/0d/a8/53/0da85336-8809-1645-d3c0-e71f520bf70b/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/150x150bb.jpg" loading="lazy" onerror="this.style.opacity=.15">
+    <div class="body">
+      <div class="top"><span class="gt">Tile Journey: Triple Match</span> <span class="pill cat">Casual</span></div>
+      <div class="gp">Triple-match + hành trình bản đồ. Game rất mới (ra 01/2026), còn nhỏ.</div>
+      <div class="meta"><span>#16 install (nhóm)</span><span>⭐ 4.6</span><span>ra mắt 2026-01-28</span><span class="pub2">LEGENDARY LABS COMPANY LIMITED</span></div>
+      <div class="meta2 stat"><span class="plat">iOS + Android</span><span><b>7</b> install 90d</span><span class="mom down">▼ -75%</span><span><b>—</b> rev 90d</span><span class="win">iOS·WW</span></div>
+    </div></div>
+  <div class="shots"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/ac/88/7f/ac887f62-8620-e5b7-232b-dd439c32f782/5.jpg/1260x2736bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/70/5e/58/705e58bd-9d6d-2a45-77be-512de41342ed/4.jpg/1260x2736bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/44/5d/77/445d77f8-737e-2843-0c14-03fda7ef5174/3.jpg/1260x2736bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/80/96/41/80964128-f9a2-3aa2-1278-8bccb26cdb94/1.jpg/1260x2736bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/6b/94/2d/6b942dd9-f504-aadb-512c-e565be23e5eb/2.jpg/1260x2736bb.png" loading="lazy" onerror="this.remove()"></div>
+</div><div class="gcard">
+  <div class="gc-top"><img class="ico" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/19/bc/c1/19bcc142-248c-bf83-f5db-479fca795716/AppIcon-0-0-1x_U007emarketing-0-6-0-85-220.png/150x150bb.jpg" loading="lazy" onerror="this.style.opacity=.15">
+    <div class="body">
+      <div class="top"><span class="gt">Triple Match Adventure</span> <span class="pill cat">Puzzle</span></div>
+      <div class="gp">Triple-match + adventure map. Mới ra 07/2025, đang giai đoạn soft-launch/nhỏ.</div>
+      <div class="meta"><span>#18 install (nhóm)</span><span>⭐ 2.3</span><span>ra mắt 2025-07-18</span><span class="pub2">Kosmos Games Ltd</span></div>
+      <div class="meta2 stat"><span class="plat">iOS</span><span><b>0</b> install 90d</span><span class="mom flat">—</span><span><b>—</b> rev 90d</span><span class="win">iOS·WW</span></div>
+    </div></div>
+  <div class="shots"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/6a/42/3a/6a423ac6-9f6f-11b0-6152-50d5d250620b/Screen1.png/1320x2868bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/5e/dd/f0/5eddf07d-00af-e422-33bc-a2e8281eff94/Screen_2.png/1320x2868bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/b6/80/f4/b680f4e2-1a36-1c9a-9427-3a32d586c833/Screen_3.png/1320x2868bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/47/97/bc/4797bc6b-bd4d-90ed-f1a0-6753e30f6507/Screen_4.png/1320x2868bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/58/71/f7/5871f724-bf53-7c36-2e4d-00cb52ab0a9d/Screen_5.png/1320x2868bb.png" loading="lazy" onerror="this.remove()"></div>
+</div><div class="gcard">
+  <div class="gc-top"><img class="ico" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/d4/b4/43/d4b443c7-ed69-bd0d-1301-acbdd0cdc02c/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/150x150bb.jpg" loading="lazy" onerror="this.style.opacity=.15">
+    <div class="body">
+      <div class="top"><span class="gt">Tiles Match 3D: Happy Trips</span> <span class="pill cat">Board</span></div>
+      <div class="gp">Match-3 tile 3D chủ đề du lịch vui nhộn (Happy Trips). Gần như ngủ đông trên iOS.</div>
+      <div class="meta"><span>#14 install (nhóm)</span><span>⭐ 4.6</span><span>ra mắt 2022-06-29</span><span class="pub2">WingsMob Global Ltd.</span></div>
+      <div class="meta2 stat"><span class="plat">iOS</span><span><b>11</b> install 90d</span><span class="mom down">▼ -50%</span><span><b>—</b> rev 90d</span><span class="win">iOS·WW</span></div>
+    </div></div>
+  <div class="shots"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource112/v4/ee/7e/4e/ee7e4e4c-f761-fb84-8571-cad632959352/98f22785-2654-4eaf-bf7f-a997b8686344_CuteGplay.png/462x1000bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource112/v4/40/21/85/402185b0-22eb-cbf4-20c0-955bb8a8c5d3/510919a2-05b4-4233-b8a5-44399de925a9_BeautifulGraphic.png/462x1000bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource122/v4/52/84/52/52845222-c40a-06de-de4c-a46d720cbfc3/534e3c3b-0c34-40fd-b66d-34f0a8221b25_Collection.png/462x1000bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource122/v4/39/24/e8/3924e89d-9f05-fcad-e31e-f8cd7696c317/04a012f4-29e5-4133-a567-3b2b95e96968_BuildingYourHouse.png/462x1000bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource112/v4/c7/bf/0a/c7bf0a02-b5f4-b29c-36a4-692514d50817/ac6b962d-6757-4e09-bae7-1dbfa377b4b4_AmazingVillage.png/462x1000bb.png" loading="lazy" onerror="this.remove()"></div>
+</div></div>
+<div class="mech-h"><span class="mn">B · Triple-tile + meta TRANG TRÍ / CẢNH QUAN</span><span class="mc">4 game</span></div>
+<div class="md">Cùng lõi triple-match nhưng meta là trang trí khu vườn / xây cảnh quan / thiền — nhánh “scenery / zen”. ARPU/user cao hơn nhánh A nhưng install nhỏ hơn.</div>
+<div class="gallery"><div class="gcard">
+  <div class="gc-top"><img class="ico" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/94/88/c1/9488c1a2-04ea-e27c-1660-9634aa5f863a/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/150x150bb.jpg" loading="lazy" onerror="this.style.opacity=.15">
+    <div class="body">
+      <div class="top"><span class="gt">Match Tile Scenery</span> <span class="pill cat">Puzzle</span></div>
+      <div class="gp">Triple-match kiếm coin để trang trí &amp; xây dựng cảnh quan (scenery builder). ARPU khá dù ít install.</div>
+      <div class="meta"><span>#10 install (nhóm)</span><span>⭐ 4.9</span><span>ra mắt 2022-02-13</span><span class="pub2">GAMEHAUS PTE. LTD</span></div>
+      <div class="meta2 stat"><span class="plat">iOS + Android</span><span><b>7K</b> install 90d</span><span class="mom down">▼ -74%</span><span><b style="color:var(--accent)">$32K</b> rev 90d</span><span class="win">iOS·WW</span></div>
+    </div></div>
+  <div class="shots"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/ea/09/cc/ea09cc2f-69e2-6759-9d9a-43e27d7139e7/MTS_EN_P1242x2688_250520_YYL_01.png/462x1000bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/a0/42/39/a042396d-c9f7-52ae-0e98-7201a7b1b4b1/MTS_EN_P1242x2688_250520_YYL_02.png/462x1000bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/4a/73/75/4a7375d8-9755-53b7-a343-3888696c8e56/MTS_EN_P1242x2688_250520_YYL_03.png/462x1000bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/85/fa/5d/85fa5d4b-980a-d6d5-ac5b-b7e92241fe8b/MTS_EN_P1242x2688_250520_YYL_04.png/462x1000bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/d0/23/bc/d023bc45-83b8-44d7-de63-dabf5038a8ec/MTS_EN_P1242x2688_250520_YYL_06.png/462x1000bb.png" loading="lazy" onerror="this.remove()"></div>
+</div><div class="gcard">
+  <div class="gc-top"><img class="ico" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c8/89/b4/c889b475-e9b7-8527-e714-9671cef1d146/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/150x150bb.jpg" loading="lazy" onerror="this.style.opacity=.15">
+    <div class="body">
+      <div class="top"><span class="gt">Zen Match - Relaxing Puzzle</span> <span class="pill cat">Puzzle</span></div>
+      <div class="gp">Triple-tile thư giãn kiểu “zen”; meta trang trí không gian thiền/khu vườn. Base cũ, sống nhờ IAP.</div>
+      <div class="meta"><span>#12 install (nhóm)</span><span>⭐ 4.6</span><span>ra mắt 2021-07-27</span><span class="pub2">Moon Active</span></div>
+      <div class="meta2 stat"><span class="plat">iOS + Android</span><span><b>840</b> install 90d</span><span class="mom down">▼ -86%</span><span><b style="color:var(--accent)">$1.5M</b> rev 90d</span><span class="win">iOS·WW</span></div>
+    </div></div>
+  <div class="shots"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/1f/93/9b/1f939b89-6790-6e49-14c2-51b6c0624b3b/04_ZEN00456_Full.CTA.Julia.Set_VER_v2_match_1242_2688_EN.png/462x1000bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/48/4f/74/484f7483-0837-1cc2-c009-921152675f0a/05_ZEN00456_Full.CTA.Julia.Set_VER_v2_gameplay_1242_2688_EN.png/462x1000bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/eb/ae/42/ebae422c-471a-ad3a-04fc-ef23b5609cf4/06_ZEN00456_Full.CTA.Julia.Set_VER_v2_brain_1242_2688_EN.png/462x1000bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/ae/e7/bc/aee7bc2e-87ea-5366-e35b-35af2b81ac43/07_ZEN00456_Full.CTA.Julia.Set_VER_v2_gameplay_1242_2688_EN.png/462x1000bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/2f/e6/24/2fe6242b-85f5-75e6-8d93-d6b4e467ecce/02_ZEN00456_Full.CTA.Julia.Set_VER_v2_stress_1242_2688_EN.png/462x1000bb.png" loading="lazy" onerror="this.remove()"></div>
+</div><div class="gcard">
+  <div class="gc-top"><img class="ico" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/f5/07/06/f50706d8-67eb-53fd-1a63-1e8b6558211b/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/150x150bb.jpg" loading="lazy" onerror="this.style.opacity=.15">
+    <div class="body">
+      <div class="top"><span class="gt">Tile Scenery: Match Puzzle</span> <span class="pill cat">Puzzle</span></div>
+      <div class="gp">Triple-match + tô điểm phong cảnh. Quy mô nhỏ, mới nổi.</div>
+      <div class="meta"><span>#11 install (nhóm)</span><span>⭐ 4.9</span><span>ra mắt 2024-10-29</span><span class="pub2">文婷 刘</span></div>
+      <div class="meta2 stat"><span class="plat">iOS</span><span><b>6K</b> install 90d</span><span class="mom up">▲ +100%</span><span><b>—</b> rev 90d</span><span class="win">iOS·WW</span></div>
+    </div></div>
+  <div class="shots"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/90/a4/02/90a402c9-7df2-63bb-6017-2553e03959e7/TileScenery_1290x2796_1.jpg/1290x2796bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/eb/bd/e0/ebbde02e-5b70-4d80-28ad-85baee2cc2bb/TileScenery_1290x2796_2.jpg/1290x2796bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/c3/25/0d/c3250d3e-3f1a-c249-e861-bc624915be02/TileScenery_1290x2796_3.jpg/1290x2796bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/21/74/40/217440cd-b3e8-8407-ddec-4bf858fddbd3/TileScenery_1290x2796_4.jpg/1290x2796bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/68/f8/76/68f87602-19be-d5de-acbf-8f889228ab92/TileScenery_1290x2796_5.jpg/1290x2796bb.png" loading="lazy" onerror="this.remove()"></div>
+</div><div class="gcard">
+  <div class="gc-top"><img class="ico" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/92/34/e2/9234e2ff-f58c-7cbe-1c8d-7c8208adc216/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/150x150bb.jpg" loading="lazy" onerror="this.style.opacity=.15">
+    <div class="body">
+      <div class="top"><span class="gt">Andy Volcano: Tile Match Story</span> <span class="pill cat">Puzzle</span></div>
+      <div class="gp">Triple-match + tuyến truyện nhân vật Andy, đề tài núi lửa. Ngủ đông trên iOS.</div>
+      <div class="meta"><span>#15 install (nhóm)</span><span>⭐ 4.6</span><span>ra mắt 2023-03-27</span><span class="pub2">SayGames LTD</span></div>
+      <div class="meta2 stat"><span class="plat">iOS + Android</span><span><b>10</b> install 90d</span><span class="mom up">▲ +150%</span><span><b style="color:var(--accent)">$176</b> rev 90d</span><span class="win">iOS·WW</span></div>
+    </div></div>
+  <div class="shots"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/19/c1/22/19c12209-3231-0f68-39d8-109d4a715eaa/6b45f837-df89-4380-85ad-4e7d67c4a3e6_ANV_Appstore_01_1242x2688.png/462x1000bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/5c/4e/22/5c4e227e-5448-7dcf-fe8f-900a4e413cce/66e9f440-17e9-4395-9006-3d2f6033a54d_ANV_Appstore_03_1242x2688.png/462x1000bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/0f/1b/53/0f1b532c-b333-a1a5-8d92-c21d437f98e9/5428a701-39f5-49e5-a71c-30f60d8d964b_ANV_Appstore_02_1242x2688.png/462x1000bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/18/07/3c/18073cf9-61bc-e47f-d9aa-a3dc5ed9a9b6/aad3ff2a-b084-437b-a78c-25b812642601_ANV_Appstore_04_1242x2688.png/462x1000bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/1f/e3/3e/1fe33ed4-da4e-4f18-2c0b-920bde504dbf/cfc327f0-62ce-483b-891e-b6cbe6dc86f4_ANV_Appstore_05_1242x2688.png/462x1000bb.png" loading="lazy" onerror="this.remove()"></div>
+</div></div>
+<div class="mech-h"><span class="mn">C · Tray-collect + meta TÂN TRANG (benchmark doanh thu)</span><span class="mc">3 game</span></div>
+<div class="md">Biến thể “gom vào khay” + meta renovation nhà/xưởng/thành phố. Đây là nơi tiền thật của cơ chế triple-match — dẫn dắt bởi Match Factory!.</div>
+<div class="gallery"><div class="gcard">
+  <div class="gc-top"><img class="ico" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/30/65/44/3065447b-4674-7285-954a-4f5db9728e60/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/150x150bb.jpg" loading="lazy" onerror="this.style.opacity=.15">
+    <div class="body">
+      <div class="top"><span class="gt">Match Factory!</span> <span class="pill" style="background:rgba(227,179,65,.18);border-color:var(--warn);color:var(--warn)">VUA DOANH THU</span><span class="pill cat">Puzzle</span></div>
+      <div class="gp">Gom 3 vật thể giống nhau vào khay 7 ô (sort/match-3D); meta xây &amp; tân trang nhà máy + thành phố. Vua doanh thu của cơ chế triple-match.</div>
+      <div class="meta"><span>#2 install (nhóm)</span><span>⭐ 4.8</span><span>ra mắt 2023-11-01</span><span class="pub2">Peak Games</span></div>
+      <div class="meta2 stat"><span class="plat">iOS + Android</span><span><b>1.0M</b> install 90d</span><span class="mom down">▼ -1%</span><span><b style="color:var(--accent)">$27.3M</b> rev 90d</span><span class="win">iOS·WW</span></div>
+    </div></div>
+  <div class="shots"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/9d/12/37/9d1237be-0e60-38f1-2d5b-32fb9f575fb0/orangeballs-6.9inch_1320x2868.png/1320x2868bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/e1/e6/c3/e1e6c39f-49e2-dc43-564f-7a561f763c81/dae1e3c6-1501-4e71-9d82-345e538baedf_3-6.7inch_1290x2796.png/1290x2796bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/22/a4/ed/22a4ed4a-4f96-4a97-bc2b-bd3b0ace1953/d9397032-feab-4a72-aa40-9d2f904c01ab_1-6.7inch_1290x2796.png/1290x2796bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/cc/b3/25/ccb32537-3e0e-dbe4-efe3-1c81f093a41d/49f66389-4659-417b-8c34-6de1480699d2_2-6.7inch_1290x2796.png/1290x2796bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/2e/64/30/2e6430a9-e029-1f59-1c69-3bb7cffa9f8f/f06ab8d2-cb81-46d8-b6d1-c7ee6b691eda_4-6.7inch_1290x2796.png/1290x2796bb.png" loading="lazy" onerror="this.remove()"></div>
+</div><div class="gcard">
+  <div class="gc-top"><img class="ico" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/13/56/d2/1356d282-bdbf-3c58-3b01-ca1bc55d6045/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/150x150bb.jpg" loading="lazy" onerror="this.style.opacity=.15">
+    <div class="body">
+      <div class="top"><span class="gt">Tile Family®:Match Puzzle Game</span> <span class="pill cat">Puzzle</span></div>
+      <div class="gp">Triple-match + meta gia đình: tân trang nhà cửa &amp; cốt truyện nhân vật.</div>
+      <div class="meta"><span>#4 install (nhóm)</span><span>⭐ 4.7</span><span>ra mắt 2022-11-11</span><span class="pub2">Playflux</span></div>
+      <div class="meta2 stat"><span class="plat">iOS + Android</span><span><b>351K</b> install 90d</span><span class="mom down">▼ -23%</span><span><b style="color:var(--accent)">$3.3M</b> rev 90d</span><span class="win">iOS·WW</span></div>
+    </div></div>
+  <div class="shots"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/f7/45/be/f745bef7-bcad-cae4-68ee-96dec1715ae2/1.png/462x1000bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/bf/cd/80/bfcd8090-7897-d233-25a4-74638cd34d20/2.png/462x1000bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/5a/f3/1b/5af31b93-03db-0c79-e201-9dafdf78ec49/3.png/462x1000bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/cb/48/a0/cb48a00b-e582-c020-0f5a-5c825bcf8059/4.png/462x1000bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/23/e0/fc/23e0fc0c-41f4-3948-8b9f-f56960c0c2dc/5-1.png/462x1000bb.png" loading="lazy" onerror="this.remove()"></div>
+</div><div class="gcard">
+  <div class="gc-top"><img class="ico" src="https://is4-ssl.mzstatic.com/image/thumb/Purple126/v4/fa/93/8f/fa938f79-25fa-e3f1-16b5-074ada7ff171/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/150x150bb.jpg" loading="lazy" onerror="this.style.opacity=.15">
+    <div class="body">
+      <div class="top"><span class="gt">Jones Tile Match Adventure</span> <span class="pill cat">Puzzle</span></div>
+      <div class="gp">Triple-match + phiêu lưu nhân vật Jones. Ngủ đông trên iOS.</div>
+      <div class="meta"><span>#17 install (nhóm)</span><span>⭐ 4.2</span><span>ra mắt 2022-10-07</span><span class="pub2">Pulse8 LLC-FZ</span></div>
+      <div class="meta2 stat"><span class="plat">iOS + Android</span><span><b>0</b> install 90d</span><span class="mom flat">—</span><span><b>—</b> rev 90d</span><span class="win">iOS·WW</span></div>
+    </div></div>
+  <div class="shots"><img class="sh" src="https://is4-ssl.mzstatic.com/image/thumb/Purple122/v4/bf/ee/cb/bfeecb7a-3bcc-4b0b-ff9d-b6d4ce656894/2dd81f17-5ba5-496f-b95b-7d25685df485_01_Match_tiles_en.jpg/462x1000bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/Purple112/v4/c2/60/94/c2609406-831a-a9b4-6915-fb77c1fa824a/05ba9817-1e2f-44bc-b368-e20002a46b37_03_Earn_Rewards_en.jpg/462x1000bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is5-ssl.mzstatic.com/image/thumb/Purple112/v4/52/a8/6d/52a86d67-2643-eda6-e9d8-838887f5df0d/d42f1401-a796-491f-a001-dafa65496960_04_Sharpen_Your_Mind_en.jpg/462x1000bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is2-ssl.mzstatic.com/image/thumb/Purple112/v4/79/ba/91/79ba915b-0891-5b54-2b38-953a3d48cbbe/41044bdc-ebf3-4bc4-a0a0-36d703d6cb74_02_Collect_Treasures_en.jpg/462x1000bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/df/b1/8d/dfb18dbf-0a78-0ad6-9f27-68ba89b6ec27/4a16de19-b761-44c5-a7a8-6604ec8a9a8e_05_Discover_New_Worlds_en.jpg/462x1000bb.png" loading="lazy" onerror="this.remove()"></div>
+</div></div>
+<div class="mech-h"><span class="mn">D · Triple-tile thuần (mechanic anchor, ít/không meta)</span><span class="mc">3 game</span></div>
+<div class="md">Lõi triple-match “trần”, meta rất nhẹ — các sản phẩm định hình & phổ biến hoá cơ chế trước khi làn sóng explorer nổi lên.</div>
+<div class="gallery"><div class="gcard">
+  <div class="gc-top"><img class="ico" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/9a/b3/d0/9ab3d070-d97b-8b52-9607-ca703d431d8c/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/150x150bb.jpg" loading="lazy" onerror="this.style.opacity=.15">
+    <div class="body">
+      <div class="top"><span class="gt">Triple Match 3D</span> <span class="pill cat">Puzzle</span></div>
+      <div class="gp">Triple-match 3D vật thể trên bàn, dọn sạch để qua màn; meta nhẹ. IAP mạnh, đang tăng trưởng.</div>
+      <div class="meta"><span>#6 install (nhóm)</span><span>⭐ 4.9</span><span>ra mắt 2022-04-13</span><span class="pub2">Boombox Games LTD</span></div>
+      <div class="meta2 stat"><span class="plat">iOS + Android</span><span><b>169K</b> install 90d</span><span class="mom up">▲ +28%</span><span><b style="color:var(--accent)">$6.2M</b> rev 90d</span><span class="win">iOS·WW</span></div>
+    </div></div>
+  <div class="shots"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/7c/cc/a0/7ccca0c9-e7ba-1310-1e66-81d4ea6f0503/1290X2796.jpg/1290x2796bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/d4/4d/52/d44d521e-52bc-3747-3cbf-61c3c94f07a5/Cats_1290X2796-screen.png/1290x2796bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/80/ec/30/80ec3069-f05d-e4f2-8434-34c8f8d687b5/Ducks_1290X2796-screen.png/1290x2796bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/09/26/36/092636e6-ddc1-e246-2cf4-bb9d1ccc830e/Dogs_1290X2796-screen.png/1290x2796bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/8e/e7/fa/8ee7fabb-93a5-7e3c-5397-69ad88feac52/HAMBURGER_SCREEN_1290X2796.jpg/1290x2796bb.png" loading="lazy" onerror="this.remove()"></div>
+</div><div class="gcard">
+  <div class="gc-top"><img class="ico" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/32/d5/ec/32d5ec5f-f18c-0c67-32f3-91693d3eee55/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/150x150bb.jpg" loading="lazy" onerror="this.style.opacity=.15">
+    <div class="body">
+      <div class="top"><span class="gt">Triple Tile: Match Puzzle Game</span> <span class="pill cat">Puzzle</span></div>
+      <div class="gp">Triple-tile mahjong-style, bóc layer; ad-led, meta rất nhẹ. Install lớn nhưng IAP≈0.</div>
+      <div class="meta"><span>#7 install (nhóm)</span><span>⭐ 4.9</span><span>ra mắt 2021-08-20</span><span class="pub2">Tripledot Studios</span></div>
+      <div class="meta2 stat"><span class="plat">iOS + Android</span><span><b>111K</b> install 90d</span><span class="mom down">▼ -5%</span><span><b>—</b> rev 90d</span><span class="win">iOS·WW</span></div>
+    </div></div>
+  <div class="shots"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/30/81/49/30814997-db69-cedf-1eb4-d59b65e14425/070_TPL_iOS_Tile_Club_Screenshot_EN_1242x2688_1_v3.png/462x1000bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/92/39/5a/92395a77-2e72-1137-a657-5673477ed7a5/070_TPL_iOS_Tile_Club_Screenshot_EN_1242x2688_2_v3.png/462x1000bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/18/80/ee/1880ee66-67fd-474b-1e0a-d31cc84a2cf8/070_TPL_iOS_Tile_Club_Screenshot_EN_1242x2688_3_v3.png/462x1000bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/81/6a/8a/816a8a70-79d9-8221-9db4-d4ff65d25c25/070_TPL_iOS_Tile_Club_Screenshot_EN_1242x2688_4_v3.png/462x1000bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/0c/00/a8/0c00a8d9-44b0-3d19-b869-d3e10a7a8358/070_TPL_iOS_Tile_Club_Screenshot_EN_1242x2688_5_v3.png/462x1000bb.png" loading="lazy" onerror="this.remove()"></div>
+</div><div class="gcard">
+  <div class="gc-top"><img class="ico" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/32/7c/4d/327c4d78-d028-0277-191c-4a0e567f61bc/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/150x150bb.jpg" loading="lazy" onerror="this.style.opacity=.15">
+    <div class="body">
+      <div class="top"><span class="gt">Tile Busters: Match 3 Tiles</span> <span class="pill cat">Puzzle</span></div>
+      <div class="gp">Triple-match + booster &amp; sự kiện/đội nhóm xã hội. Base trưởng thành, UA giảm.</div>
+      <div class="meta"><span>#13 install (nhóm)</span><span>⭐ 4.8</span><span>ra mắt 2022-10-03</span><span class="pub2">Spyke Games</span></div>
+      <div class="meta2 stat"><span class="plat">iOS + Android</span><span><b>746</b> install 90d</span><span class="mom down">▼ -29%</span><span><b style="color:var(--accent)">$479K</b> rev 90d</span><span class="win">iOS·WW</span></div>
+    </div></div>
+  <div class="shots"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/ec/1c/07/ec1c0704-9475-a1c4-19ae-26c209c7dd58/mavi.png/462x1000bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/a2/8a/4c/a28a4c60-ff8a-c72c-38cd-5d21b8866520/kirmizi.png/462x1000bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/3e/71/5c/3e715cf6-2be1-7baf-16e1-6ef2e1d05f58/sari.png/462x1000bb.png" loading="lazy" onerror="this.remove()"><img class="sh" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/82/b2/a0/82b2a0e7-0f64-a34a-ee1e-30f70c5d813e/yesil.png/462x1000bb.png" loading="lazy" onerror="this.remove()"></div>
+</div></div>
+
+
+<h2>Điểm khác biệt giữa các con game</h2>
+<div class="box">
+<h3>Trục phân hoá chính</h3>
+<ul>
+<li><b>Meta loop</b> — điểm phân hoá lớn nhất: <b>Khám phá/du lịch</b> (Tile Explorer, Voyage, Vacation, Rush) vs <b>Trang trí/cảnh quan</b> (Match Tile Scenery, Zen Match) vs <b>Tân trang nhà/xưởng</b> (Match Factory!, Tile Family) vs <b>gần như không meta</b> (Triple Tile, Triple Match 3D).</li>
+<li><b>Cơ chế lõi</b> — hai biến thể: <i>tap-to-clear</i> (chạm 3 tile trên bàn phẳng/mahjong-layer: Tile Explorer, Zen Match, Triple Tile) vs <i>collect-into-tray</i> (gom vật thể vào khay 7 ô kiểu sort: Match Factory!, Match Tile 3D). Nhánh tray-collect monetize mạnh hơn hẳn.</li>
+<li><b>Art/theme</b> — cozy travel/postcard (Explorer, Voyage, Vacation), zen/floral tối giản (Zen Match, Zen Blossom), 3D vật thể sáng màu (Triple Match 3D, Match Factory!), story-character (Tile Match Story, Andy Volcano).</li>
+<li><b>Monetization</b> — nhánh explorer mới (2024–26) chủ yếu <b>ad-led, IAP≈0</b>; nhánh renovation (Match Factory!, Tile Family) và legacy zen (Zen Match) monetize bằng <b>IAP</b> (booster/life/gói) → doanh thu cao gấp bội.</li>
+</ul>
+</div>
+<div class="two">
+<div class="box op"><h3>🌱 Gốc / khởi tạo cơ chế</h3><ul>
+<li><b>Triple Tile</b> (Tripledot, 08/2021) & <b>Zen Match</b> (Moon Active, 07/2021) — phổ biến hoá triple-tile thư giãn.</li>
+<li><b>Triple Match 3D</b> (Boombox, 04/2022) — chuẩn hoá triple-match 3D vật thể.</li>
+<li><b>Match Factory!</b> (Peak/Zynga, 11/2023) — nâng cấp thành tray-collect + renovation, định nghĩa lại trần doanh thu.</li>
+</ul></div>
+<div class="box rk"><h3>🔁 Follower / clone (làn sóng Explorer)</h3><ul>
+<li><b>Tile Explorer</b> (Oakever, 05/2024) — follower nhưng <b>breakout</b>: con duy nhất cracked cả install (1.85M/90d) lẫn revenue ($601K/90d, +50%).</li>
+<li><b>Tile Voyage / Vacation / Rush / Journey / Triple Match Adventure</b> (2025–26) — clone theme du lịch, bám sát Tile Explorer, đa số còn nhỏ & IAP≈0.</li>
+</ul></div>
+</div>
+
+<h2>Nhận định thị trường &amp; cơ hội</h2>
+<div class="box"><h3>Dòng game đang ở đâu?</h3>
+<ul>
+<li><b>Cơ chế triple-match = RED OCEAN.</b> Hàng chục sản phẩm, dẫn đầu là gã khổng lồ Match Factory! (~$10M/tháng) + hệ Tripledot/Boombox/Playflux. Cạnh tranh UA & LiveOps rất khốc liệt ở tầng monetization.</li>
+<li><b>Nhánh "Explorer/Travel" cụ thể = BLUE-ish / đang định hình.</b> Chỉ Tile Explorer thực sự breakout; phần còn lại install có nhưng <b>chưa ai giải được bài toán monetization</b> (đa số IAP≈0, sống bằng ads). Đây là khoảng trống: <b>meta khám phá đã hút được install nhưng chưa được "bơm" IAP đúng cách</b>.</li>
+<li><b>Xu hướng:</b> nhánh explorer đang <b>lên</b> về install (Tile Voyage +167%, Tile Explorer +50% MoM); nhánh legacy zen/tile thuần đang <b>bão hoà/xuống</b> (Zen Match −86%, Match Tile Scenery −74% install MoM).</li>
+</ul>
+</div>
+<div class="two">
+<div class="box op"><h3>✅ Cơ hội nếu nhảy vào</h3><ul>
+<li>Lõi triple-match <b>rẻ &amp; nhanh để build</b>, đã được validate về retention.</li>
+<li>Meta "khám phá/du lịch" đang hút install nhưng <b>bỏ ngỏ monetization</b> → cửa để làm tốt hơn: ghép <b>tray-collect (kiểu Match Factory!) + meta travel</b> để nâng IAP.</li>
+<li>Reskin theme du lịch/điểm đến (postcard, world map) dễ localize & làm creative ad.</li>
+</ul></div>
+<div class="box rk"><h3>⚠️ Rào cản</h3><ul>
+<li>CPI puzzle casual cao; muốn scale phải cạnh tranh UA trực tiếp với Peak/Moon Active/Tripledot.</li>
+<li>Đa số follower explorer <b>chưa monetize được</b> → nếu chỉ clone theme mà không đổi mới meta/economy thì rơi vào bẫy "install nhiều, doanh thu ~0".</li>
+<li>Trần thể loại đã bị Match Factory! chiếm; khó soán ngôi ở phân khúc IAP-heavy nếu không có twist rõ.</li>
+</ul></div>
+</div>
+<div class="note" style="background:rgba(88,166,255,.10);border-color:var(--accent2);color:#bcd6f5">💡 <b>Ngách tiềm năng rút ra:</b> "Triple-match tray-collect + meta du lịch/khám phá thế giới, thiết kế economy IAP nghiêm túc từ đầu" — lấp đúng khoảng trống mà làn sóng Tile Explorer/Voyage đang bỏ ngỏ (hút install tốt nhưng IAP≈0). Nên đưa qua <b>game-idea-validator</b> trước khi build.</div>
+
+<footer>Nguồn: Sensor Tower (install/revenue IAP · iOS · Worldwide · Apr–Jun 2026 ≈ 90d) · iTunes/Sensor Tower (icon, screenshot, ngày ra mắt) · data.ai Game IQ hiện 403 (cấp-1 taxonomy suy ra theo cơ chế). Cập nhật 07/07/2026.</footer>
+</div>
+</script>
+
 <script>
-const META = {"tilematch": {"title": "Tile-Match / Tile Clear — nghiên cứu dòng game", "source": "Sensor Tower · iOS WW", "updated": "07/07/2026"}, "dataai": {"title": "Game tăng install 3 tháng — theo genre", "source": "Sensor Tower · data.ai", "updated": "07/07/2026"}, "ios_q2": {"title": "Game tăng install — iOS US Q2 2026", "source": "Sensor Tower", "updated": "06/07/2026"}, "subgenre": {"title": "Subgenre dễ làm — tăng install 3 tháng", "source": "Sensor Tower · iOS US", "updated": "07/07/2026"}, "block_blast": {"title": "Dòng game Block Blast — Phân tích thị trường", "source": "Dữ liệu công khai", "updated": "07/07/2026"}, "puzzle": {"title": "Puzzle deduction — game tương tự trên store", "source": "Sensor Tower · Khảo sát store", "updated": "07/07/2026"}};
+const META = {"tile_explorer": {"title": "Tile Explorer Triple Match — nghiên cứu dòng game", "source": "Sensor Tower · iOS WW", "updated": "07/07/2026"}, "tilematch": {"title": "Tile-Match / Tile Clear — nghiên cứu dòng game", "source": "Sensor Tower · iOS WW", "updated": "07/07/2026"}, "dataai": {"title": "Game tăng install 3 tháng — theo genre", "source": "Sensor Tower · data.ai", "updated": "07/07/2026"}, "ios_q2": {"title": "Game tăng install — iOS US Q2 2026", "source": "Sensor Tower", "updated": "06/07/2026"}, "subgenre": {"title": "Subgenre dễ làm — tăng install 3 tháng", "source": "Sensor Tower · iOS US", "updated": "07/07/2026"}, "block_blast": {"title": "Dòng game Block Blast — Phân tích thị trường", "source": "Dữ liệu công khai", "updated": "07/07/2026"}, "puzzle": {"title": "Puzzle deduction — game tương tự trên store", "source": "Sensor Tower · Khảo sát store", "updated": "07/07/2026"}};
 const stage = document.getElementById('stage');
 const frames = {};
 
